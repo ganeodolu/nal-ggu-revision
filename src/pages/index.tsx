@@ -1,9 +1,9 @@
+import StartSelectBox from "@/components/atoms/startSelectBox";
+import { startState } from "@/lib/store/startData";
+import Image from "next/image";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import StartSelectBox from "@/components/atoms/startSelectBox";
-import { startState } from "@/lib/store/startData";
-
 
 const Start = () => {
   const colorChip = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
@@ -324,7 +324,15 @@ const Start = () => {
     <>
       <Wrapper>
         <LogoWrapper>
-          <Logo src="/assets/sun.png" />
+          <Logo>
+            <Image
+              src="/sun.png"
+              alt="로고"
+              layout="responsive"
+              width="100"
+              height="100"
+            />
+          </Logo>
           <AppTitle>NALGGU</AppTitle>
         </LogoWrapper>
         <HelloWrapper>
@@ -423,7 +431,7 @@ const AppTitle = styled.span`
     font-size: 1rem;
   }
 `;
-const Logo = styled.img`
+const Logo = styled.div`
   width: 5rem;
   margin-right: 0.5rem;
   @media screen and (max-width: 32rem) {
