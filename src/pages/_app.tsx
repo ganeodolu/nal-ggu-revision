@@ -6,6 +6,7 @@ import { NextPage } from "next";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "@/styles/GlobalStyle";
 import { theme } from "@/styles/theme";
+import { RecoilRoot } from "recoil";
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   P,
@@ -25,10 +26,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          {getLayout(<Component {...pageProps} />)}
-        </ThemeProvider>
+        <RecoilRoot>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            {getLayout(<Component {...pageProps} />)}
+          </ThemeProvider>
+        </RecoilRoot>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
