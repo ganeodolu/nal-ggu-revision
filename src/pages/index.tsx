@@ -1,6 +1,7 @@
 import StartSelectBox from "@/components/atoms/startSelectBox";
 import { startState } from "@/lib/store/startData";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
@@ -306,14 +307,12 @@ const Start = () => {
     ]
   ];
 
-  // const navigate = useNavigate();
-
   const navigateSetup = () => {
-    // navigate("/setup");
+    <Link href={"/setup"}></Link>;
   };
 
   const navigateMain = () => {
-    // navigate("/main");
+    <Link href={"/main"}></Link>;
   };
 
   const setStoreInitialData = (id: string) => {
@@ -327,10 +326,8 @@ const Start = () => {
           <Logo>
             <Image
               src="/sun.png"
-              alt="로고"
-              layout="responsive"
-              width="100"
-              height="100"
+              alt="날꾸로고"
+              fill
             />
           </Logo>
           <AppTitle>NALGGU</AppTitle>
@@ -363,13 +360,16 @@ const Start = () => {
             </div>
           ))}
           <Divider></Divider>
-          <div style={{ width: "100%" }} onClick={navigateSetup}>
+          <Link
+            href={"/setup"}
+            style={{ width: "100%", textDecoration: "none", color: "black" }}
+          >
             <StartSelectBox
               title={presetData.selfCustom[0].title}
               icon={presetData.selfCustom[0].icon}
               color={presetData.selfCustom[0].color}
             />
-          </div>
+          </Link>
         </BoxWrapper>
       </Wrapper>
     </>
@@ -432,10 +432,13 @@ const AppTitle = styled.span`
   }
 `;
 const Logo = styled.div`
+  position: relative;
   width: 5rem;
+  height: 5rem;
   margin-right: 0.5rem;
   @media screen and (max-width: 32rem) {
     width: 3rem;
+    height: 3rem;
   }
 `;
 
