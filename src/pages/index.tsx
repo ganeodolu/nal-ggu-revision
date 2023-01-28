@@ -1,123 +1,446 @@
-import styles from "@/styles/Home.module.css"
-import { Inter } from "@next/font/google"
-import Head from "next/head"
-import Image from "next/image"
+import React from "react";
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
+import StartSelectBox from "@/components/atoms/startSelectBox";
+import { startState } from "@/lib/store/startData";
 
-const inter = Inter({ subsets: ["latin"] })
 
-export default function Home() {
+const Start = () => {
+  const colorChip = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
+  const [startData, setStartData] = useRecoilState(startState);
+  const presetData = {
+    presets: [
+      { id: "1", title: "비가 오는지 궁금해요", icon: "☔", color: "#609FFF" },
+      {
+        id: "2",
+        title: "달릴만한 날씨인지 궁금해요",
+        icon: "🏃",
+        color: "#FF7A7A"
+      },
+      {
+        id: "3",
+        title: "하늘 상태가 궁금해요",
+        icon: "🌤️",
+        color: "#B470EA"
+      },
+      {
+        id: "4",
+        title: "꿉꿉하진 않은지 궁금해요",
+        icon: "🌫️",
+        color: "#FFC42E"
+      },
+      { id: "5", title: "아무렇게나 해주세요", icon: "🛏️", color: "#61C3A0" }
+    ],
+    selfCustom: [{ title: "제가 커스텀할래요", icon: "🌈", color: "#929292" }]
+  };
+
+  const initialData = [
+    [
+      {
+        sort: "비",
+        category: "POP",
+        title: "강수확률",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "PCP",
+        title: "1시간 강수량",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "PTY",
+        title: "강수형태",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "SKY",
+        title: "하늘상태",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "TMP",
+        title: "1시간 기온",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "VEC",
+        title: "풍향",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "WSD",
+        title: "풍속",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      }
+    ],
+    [
+      {
+        sort: "비",
+        category: "POP",
+        title: "강수확률",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "TMP",
+        title: "1시간 기온",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "WSD",
+        title: "풍속",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "SKY",
+        title: "하늘상태",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "REH",
+        title: "습도",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "VEC",
+        title: "풍향",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "강수",
+        category: "SNO",
+        title: "1시간 신적설",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      }
+    ],
+    [
+      {
+        sort: "대기",
+        category: "SKY",
+        title: "하늘상태",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "TMP",
+        title: "1시간 기온",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "PCP",
+        title: "1시간 강수량",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "VEC",
+        title: "풍향",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "WSD",
+        title: "풍속",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "REH",
+        title: "습도",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "POP",
+        title: "강수확률",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      }
+    ],
+    [
+      {
+        sort: "대기",
+        category: "REH",
+        title: "습도",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "POP",
+        title: "강수확률",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "TMP",
+        title: "1시간 기온",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "VEC",
+        title: "풍향",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "WSD",
+        title: "풍속",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "SKY",
+        title: "하늘상태",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "PCP",
+        title: "1시간 강수량",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      }
+    ],
+    [
+      {
+        sort: "대기",
+        category: "sunrise",
+        title: "일출",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "대기",
+        category: "sunset",
+        title: "일몰",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      // {
+      //   sort: "대기",
+      //   category: "SKY",
+      //   title: "하늘상태",
+      //   size: "2",
+      //   color: colorChip[Math.floor(Math.random() * colorChip.length)],
+      // },
+      // {
+      //   sort: "대기",
+      //   category: "TMP",
+      //   title: "1시간 기온",
+      //   size: "2",
+      //   color: colorChip[Math.floor(Math.random() * colorChip.length)],
+      // },
+      {
+        sort: "비",
+        category: "POP",
+        title: "강수확률",
+        size: "2",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "PCP",
+        title: "1시간 강수량",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "비",
+        category: "REH",
+        title: "습도",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "WSD",
+        title: "풍속",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      },
+      {
+        sort: "바람",
+        category: "VEC",
+        title: "풍향",
+        size: "1",
+        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+      }
+    ]
+  ];
+
+  // const navigate = useNavigate();
+
+  const navigateSetup = () => {
+    // navigate("/setup");
+  };
+
+  const navigateMain = () => {
+    // navigate("/main");
+  };
+
+  const setStoreInitialData = (id: string) => {
+    setStartData(initialData[Number(id) - 1]);
+  };
+
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+      <Wrapper>
+        <LogoWrapper>
+          <Logo src="/assets/sun.png" />
+          <AppTitle>NALGGU</AppTitle>
+        </LogoWrapper>
+        <HelloWrapper>
+          <Hello>
+            안녕하세요. 저는 <span>날꾸</span>에요! <br />
+            <br />
+            <span className="SubContent">
+              저에게 궁금한게 무엇인가요? 선택해주세요!
+            </span>
+          </Hello>
+        </HelloWrapper>
+        <BoxWrapper>
+          {presetData.presets.map((presetData) => (
+            <div
+              key={presetData.id}
+              style={{ width: "100%" }}
+              onClick={() => {
+                setStoreInitialData(presetData.id);
+                navigateMain();
+              }}
             >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+              <StartSelectBox
+                key={presetData.id}
+                title={presetData.title}
+                icon={presetData.icon}
+                color={presetData.color}
               />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
+            </div>
+          ))}
+          <Divider></Divider>
+          <div style={{ width: "100%" }} onClick={navigateSetup}>
+            <StartSelectBox
+              title={presetData.selfCustom[0].title}
+              icon={presetData.selfCustom[0].icon}
+              color={presetData.selfCustom[0].color}
             />
           </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+        </BoxWrapper>
+      </Wrapper>
     </>
-  )
-}
+  );
+};
+
+const Wrapper = styled.div`
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  user-select: none;
+  @media screen and (max-width: 32rem) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 32rem) {
+    font-size: 0.5rem;
+  }
+`;
+
+const HelloWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+`;
+
+const Hello = styled.div`
+  font-size: 2rem;
+  font-weight: bolder;
+  span {
+    color: #6d39ff;
+  }
+  @media screen and (max-width: 32rem) {
+    font-size: 1.5rem;
+  }
+
+  .SubContent {
+    color: black;
+    font-size: 1.5rem;
+    @media screen and (max-width: 32rem) {
+      font-size: 1rem;
+    }
+  }
+`;
+
+const AppTitle = styled.span`
+  font-size: 2rem;
+  font-weight: bold;
+  @media screen and (max-width: 32rem) {
+    font-size: 1rem;
+  }
+`;
+const Logo = styled.img`
+  width: 5rem;
+  margin-right: 0.5rem;
+  @media screen and (max-width: 32rem) {
+    width: 3rem;
+  }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  margin-bottom: 2rem;
+  border-top: solid 2px lightgray;
+`;
+
+const BoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export default Start;
