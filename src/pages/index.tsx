@@ -283,14 +283,6 @@ const Start = () => {
     ]
   ];
 
-  const navigateSetup = () => {
-    <Link href={"/setup"}></Link>;
-  };
-
-  const navigateMain = () => {
-    <Link href={"/main"}></Link>;
-  };
-
   const setStoreInitialData = (id: string) => {
     setStartData(initialData[Number(id) - 1]);
   };
@@ -300,11 +292,7 @@ const Start = () => {
       <Wrapper>
         <LogoWrapper>
           <Logo>
-            <Image
-              src="/sun.png"
-              alt="날꾸로고"
-              fill
-            />
+            <Image src="/sun.png" alt="날꾸로고" fill />
           </Logo>
           <AppTitle>NALGGU</AppTitle>
         </LogoWrapper>
@@ -324,15 +312,23 @@ const Start = () => {
               style={{ width: "100%" }}
               onClick={() => {
                 setStoreInitialData(PRESET_DATA.id);
-                navigateMain();
               }}
             >
-              <StartSelectBox
-                key={PRESET_DATA.id}
-                title={PRESET_DATA.title}
-                icon={PRESET_DATA.icon}
-                color={PRESET_DATA.color}
-              />
+              <Link
+                href={"/main"}
+                style={{
+                  width: "100%",
+                  textDecoration: "none",
+                  color: "black"
+                }}
+              >
+                <StartSelectBox
+                  key={PRESET_DATA.id}
+                  title={PRESET_DATA.title}
+                  icon={PRESET_DATA.icon}
+                  color={PRESET_DATA.color}
+                />
+              </Link>
             </div>
           ))}
           <Divider></Divider>
