@@ -5,36 +5,12 @@ import Link from "next/link";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { PRESET_DATA } from "@/lib/constants/constants";
 
 const Start = () => {
   const colorChip = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
   const [startData, setStartData] = useRecoilState(startState);
-  const presetData = {
-    presets: [
-      { id: "1", title: "비가 오는지 궁금해요", icon: "☔", color: "#609FFF" },
-      {
-        id: "2",
-        title: "달릴만한 날씨인지 궁금해요",
-        icon: "🏃",
-        color: "#FF7A7A"
-      },
-      {
-        id: "3",
-        title: "하늘 상태가 궁금해요",
-        icon: "🌤️",
-        color: "#B470EA"
-      },
-      {
-        id: "4",
-        title: "꿉꿉하진 않은지 궁금해요",
-        icon: "🌫️",
-        color: "#FFC42E"
-      },
-      { id: "5", title: "아무렇게나 해주세요", icon: "🛏️", color: "#61C3A0" }
-    ],
-    selfCustom: [{ title: "제가 커스텀할래요", icon: "🌈", color: "#929292" }]
-  };
-
+  
   const initialData = [
     [
       {
@@ -342,20 +318,20 @@ const Start = () => {
           </Hello>
         </HelloWrapper>
         <BoxWrapper>
-          {presetData.presets.map((presetData) => (
+          {PRESET_DATA.presets.map((PRESET_DATA) => (
             <div
-              key={presetData.id}
+              key={PRESET_DATA.id}
               style={{ width: "100%" }}
               onClick={() => {
-                setStoreInitialData(presetData.id);
+                setStoreInitialData(PRESET_DATA.id);
                 navigateMain();
               }}
             >
               <StartSelectBox
-                key={presetData.id}
-                title={presetData.title}
-                icon={presetData.icon}
-                color={presetData.color}
+                key={PRESET_DATA.id}
+                title={PRESET_DATA.title}
+                icon={PRESET_DATA.icon}
+                color={PRESET_DATA.color}
               />
             </div>
           ))}
@@ -365,9 +341,9 @@ const Start = () => {
             style={{ width: "100%", textDecoration: "none", color: "black" }}
           >
             <StartSelectBox
-              title={presetData.selfCustom[0].title}
-              icon={presetData.selfCustom[0].icon}
-              color={presetData.selfCustom[0].color}
+              title={PRESET_DATA.selfCustom[0].title}
+              icon={PRESET_DATA.selfCustom[0].icon}
+              color={PRESET_DATA.selfCustom[0].color}
             />
           </Link>
         </BoxWrapper>

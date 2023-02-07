@@ -135,3 +135,39 @@ export const MOCKUP_ASTRONOMY_DATA: Astronomy[] = [
   { category: "sunrise", value: "0646" },
   { category: "sunset", value: "1747" }
 ];
+
+export const PRESET_DATA = {
+    presets: [
+      {
+        id: "1",
+        title: "비가 오는지 궁금해요",
+        icon: "☔",
+        color: "#609FFF"
+      },
+      {
+        id: "2",
+        title: "달릴만한 날씨인지 궁금해요",
+        icon: "🏃",
+        color: "#FF7A7A"
+      },
+      {
+        id: "3",
+        title: "하늘 상태가 궁금해요",
+        icon: "🌤️",
+        color: "#B470EA"
+      },
+      {
+        id: "4",
+        title: "꿉꿉하진 않은지 궁금해요",
+        icon: "🌫️",
+        color: "#FFC42E"
+      },
+      {
+        id: "5",
+        title: "아무렇게나 해주세요",
+        icon: "🛏️",
+        color: "#61C3A0"
+      }
+    ],
+    selfCustom: [{ title: "제가 커스텀할래요", icon: "🌈", color: "#929292" }]
+  };
