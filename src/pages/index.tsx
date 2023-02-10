@@ -5,8 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { PRESET_DATA } from "@/lib/constants/constants";
-import { COLOR_CHIP } from "@/lib/constants/constants";
+import { PRESET_DATA, COLOR_CHIP } from "@/lib/constants/constants";
 
 const Start = () => {
   const [startData, setStartData] = useRecoilState(startState);

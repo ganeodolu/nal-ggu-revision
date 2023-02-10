@@ -15,7 +15,7 @@ import {
   MOCKUP_ASTRONOMY_DATA,
   MOCKUP_WEATHER_DATA
 } from "@/lib/constants/constants";
-import { Astronomy, Weather } from "@/lib/types/types";
+import type { Astronomy, Weather } from "@/lib/types";
 
 const Main = () => {
   const [userSelectWeather, setUserSelectWeather] = useRecoilState(startState);
@@ -76,13 +76,13 @@ const Main = () => {
     <Wrapper className="wr">
       <MainHeader location={location.name} />
       <WeatherWrapper>
-        {/* {userSelectWeather.map((userWeather) => (
+        {userSelectWeather.map((userWeather) => (
           <WeatherBox
             userWeather={userWeather}
             weather={weather}
             key={userWeather.category}
           />
-        ))} */}
+        ))}
         <DragDropContext onDragEnd={handleChangeOrder}>
           <Droppable droppableId="infoList">
             {(provided) => (

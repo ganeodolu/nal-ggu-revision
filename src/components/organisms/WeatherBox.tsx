@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import { StartData } from "@/lib/types/types";
+import { StartData } from "@/lib/types";
 
 interface Props {
   userWeather: StartData;

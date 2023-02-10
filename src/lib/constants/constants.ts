@@ -1,4 +1,4 @@
-import { Weather, Astronomy } from "../types/types";
+import { Weather, Astronomy } from "../types";
 
 export const COLOR_CHIP = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
 

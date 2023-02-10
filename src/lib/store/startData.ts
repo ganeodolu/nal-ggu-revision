@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 import { DEFAULT_LOCATION } from "@/lib/constants/constants";
-import { StartData } from "../types/types";
+import { StartData } from "../types";
 
 const { persistAtom } = recoilPersist();
 
