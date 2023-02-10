@@ -18,7 +18,7 @@ export const getWeatherInformation = async (x: string, y: string) => {
   const [base_date, base_time] = timeTransform(1);
   const response = await apiWithWeather({
     params: {
-      serviceKey: process.env.REACT_APP_WEATHER_API_KEY,
+      serviceKey: process.env.NEXT_PUBLIC_WEATHER_API_KEY,
       numOfRows: "12",
       pageNo: "1",
       base_date,

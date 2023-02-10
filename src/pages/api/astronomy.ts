@@ -10,7 +10,7 @@ const makeDate = () => {
 export const getAstronomyInformation = async (lon: string, lat: string) => {
   const response = await apiWithAstronomy({
     params: {
-      ServiceKey: process.env.REACT_APP_ASTRONOMY_API_KEY,
+      ServiceKey: process.env.NEXT_PUBLIC_ASTRONOMY_API_KEY,
       latitude: lat,
       longitude: lon,
       dnYn: "Y",
