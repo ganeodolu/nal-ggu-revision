@@ -6,9 +6,9 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { PRESET_DATA } from "@/lib/constants/constants";
+import { COLOR_CHIP } from "@/lib/constants/constants";
 
 const Start = () => {
-  const colorChip = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
   const [startData, setStartData] = useRecoilState(startState);
   
   const initialData = [
@@ -18,49 +18,49 @@ const Start = () => {
         category: "POP",
         title: "강수확률",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "PCP",
         title: "1시간 강수량",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "PTY",
         title: "강수형태",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "SKY",
         title: "하늘상태",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "TMP",
         title: "1시간 기온",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "VEC",
         title: "풍향",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "WSD",
         title: "풍속",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       }
     ],
     [
@@ -69,49 +69,49 @@ const Start = () => {
         category: "POP",
         title: "강수확률",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "TMP",
         title: "1시간 기온",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "WSD",
         title: "풍속",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "SKY",
         title: "하늘상태",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "REH",
         title: "습도",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "VEC",
         title: "풍향",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "강수",
         category: "SNO",
         title: "1시간 신적설",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       }
     ],
     [
@@ -120,49 +120,49 @@ const Start = () => {
         category: "SKY",
         title: "하늘상태",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "TMP",
         title: "1시간 기온",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "PCP",
         title: "1시간 강수량",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "VEC",
         title: "풍향",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "WSD",
         title: "풍속",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "REH",
         title: "습도",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "POP",
         title: "강수확률",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       }
     ],
     [
@@ -171,49 +171,49 @@ const Start = () => {
         category: "REH",
         title: "습도",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "POP",
         title: "강수확률",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "TMP",
         title: "1시간 기온",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "VEC",
         title: "풍향",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "WSD",
         title: "풍속",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "SKY",
         title: "하늘상태",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "PCP",
         title: "1시간 강수량",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       }
     ],
     [
@@ -222,63 +222,63 @@ const Start = () => {
         category: "sunrise",
         title: "일출",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "대기",
         category: "sunset",
         title: "일몰",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       // {
       //   sort: "대기",
       //   category: "SKY",
       //   title: "하늘상태",
       //   size: "2",
-      //   color: colorChip[Math.floor(Math.random() * colorChip.length)],
+      //   color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)],
       // },
       // {
       //   sort: "대기",
       //   category: "TMP",
       //   title: "1시간 기온",
       //   size: "2",
-      //   color: colorChip[Math.floor(Math.random() * colorChip.length)],
+      //   color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)],
       // },
       {
         sort: "비",
         category: "POP",
         title: "강수확률",
         size: "2",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "PCP",
         title: "1시간 강수량",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "비",
         category: "REH",
         title: "습도",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "WSD",
         title: "풍속",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
         sort: "바람",
         category: "VEC",
         title: "풍향",
         size: "1",
-        color: colorChip[Math.floor(Math.random() * colorChip.length)]
+        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       }
     ]
   ];

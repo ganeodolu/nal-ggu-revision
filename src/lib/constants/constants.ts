@@ -1,5 +1,7 @@
 import { Weather, Astronomy } from "../types/types";
 
+export const COLOR_CHIP = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
+
 export const DEFAULT_LOCATION = [
   "경기도 성남시 분당구 판교동",
   "62",
