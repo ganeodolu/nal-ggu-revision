@@ -15,6 +15,7 @@ import {
   MOCKUP_ASTRONOMY_DATA,
   MOCKUP_WEATHER_DATA
 } from "@/lib/constants/constants";
+import { Astronomy, Weather } from "@/lib/types/types";
 
 const Main = () => {
   const [userSelectWeather, setUserSelectWeather] = useRecoilState(startState);
