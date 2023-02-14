@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const SetupHeader = () => {
-  // const navigate = useNavigate();
+  const router = useRouter();
   const alertNotice = () => {
     alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
   };
@@ -13,9 +14,7 @@ const SetupHeader = () => {
           alt="arrow_left"
           className="arrow_left"
           src="/arrow-left.png"
-          onClick={() => {
-            // navigate("/main");
-          }}
+          onClick={() => router.push("/main")}
         />
         <h1 className="location">커스텀</h1>
         <button className="save_btn" onClick={alertNotice}>

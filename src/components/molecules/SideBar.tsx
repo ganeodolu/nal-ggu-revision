@@ -1,4 +1,3 @@
-// import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -9,7 +8,6 @@ interface SideBarType {
 }
 
 const SideBar = ({ isOpenSideBar, hideSideBar }: SideBarType) => {
-  // const navigate = useNavigate();
   const router = useRouter();
 
   return (
@@ -20,7 +18,6 @@ const SideBar = ({ isOpenSideBar, hideSideBar }: SideBarType) => {
             <img className="logo" src="/sun.png" />
           </div>
           <button
-            // onClick={() => navigate("/setup")}
             onClick={() => router.push("/setup")}
             className="customBtn"
           >
