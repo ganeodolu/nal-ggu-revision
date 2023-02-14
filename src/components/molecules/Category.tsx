@@ -29,7 +29,7 @@ const Category = () => {
         {infoSort("대기").map((data) => (
           <WeatherCategoryButton key={data.category} onClick={alertProblems}>
             <span>{data.title}</span>
-            <DotsImage src="/assets/dots.png" alt="dots" />
+            <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -38,7 +38,7 @@ const Category = () => {
         {infoSort("강수").map((data) => (
           <WeatherCategoryButton key={data.category} onClick={alertProblems}>
             <span>{data.title}</span>
-            <DotsImage src="/assets/dots.png" alt="dots" />
+            <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -47,7 +47,7 @@ const Category = () => {
         {infoSort("바람").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
-            <DotsImage src="/assets/dots.png" alt="dots" />
+            <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
