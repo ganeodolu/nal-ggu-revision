@@ -27,7 +27,7 @@ interface AddressItemV2 {
   distance: string;
 }
 
-const Map = ({ address }: Props) => {
+const useMap = ({ address }: Props) => {
   const [result, setResult] = useState<AddressItemV2[]>();
 
   useEffect(() => {
@@ -51,4 +51,4 @@ const Map = ({ address }: Props) => {
   return result;
 };
 
-export default Map;
+export default useMap;
