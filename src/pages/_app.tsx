@@ -1,14 +1,14 @@
-import Head from "next/head";
-import Script from "next/script";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import type { AppProps } from "next/app";
-import { ReactElement, ReactNode } from "react";
-import { NextPage } from "next";
-import { ThemeProvider } from "styled-components";
 import GlobalStyle from "@/styles/GlobalStyle";
 import { theme } from "@/styles/theme";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { NextPage } from "next";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import Script from "next/script";
+import { ReactElement, ReactNode } from "react";
 import { RecoilRoot } from "recoil";
+import { ThemeProvider } from "styled-components";
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   P,
@@ -40,6 +40,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           property="og:image"
           content="https://github.com/bbnerino/nal-ggu/blob/master/public/assets/meta/kakaotalk_800400.png?raw=true"
         />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon.png"
+        ></link>
       </Head>
       <Script
         strategy="beforeInteractive"
