@@ -1,12 +1,12 @@
-import { DEFAULT_LOCATION } from "@/lib/constants/constants";
+import { DEFAULT_LOCATION } from "@/lib/constants";
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { InfoData, StartData } from "../types";
+import { CategoryItem, InfoData } from "../types";
 
 const { persistAtom } = recoilPersist();
 
-export const categoryOrderListState = atom<StartData[]>({
-  key: "categoryOrderListState",
+export const categoryListState = atom<CategoryItem[]>({
+  key: "categoryListState",
   default: [],
   effects_UNSTABLE: [persistAtom]
 });

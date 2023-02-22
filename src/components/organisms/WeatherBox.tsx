@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import { StartData } from "@/lib/types";
+import { CategoryItem } from "@/lib/types";
 
 interface Props {
-  userWeather: StartData;
+  userWeather: CategoryItem;
   weather: any;
 }
 

@@ -1,14 +1,15 @@
 import StartSelectBox from "@/components/atoms/startSelectBox";
-import { COLOR_CHIP, PRESET_DATA } from "@/lib/constants/constants";
-import { categoryOrderListState } from "@/lib/store";
+import { COLOR_CHIP, PRESET_DATA } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { categoryListState } from "@/lib/store";
 
 const Start = () => {
-  const [startData, setStartData] = useRecoilState(categoryOrderListState);
+  const [selectedCategoryList, setSelectedCategoryList] =
+    useRecoilState(categoryListState);
 
   const initialData = [
     [
@@ -283,7 +284,7 @@ const Start = () => {
   ];
 
   const setStoreInitialData = (id: string) => {
-    setStartData(initialData[Number(id) - 1]);
+    setSelectedCategoryList(initialData[Number(id) - 1]);
   };
 
   return (

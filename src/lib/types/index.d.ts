@@ -16,7 +16,7 @@ export interface Astronomy {
 
 export type FullData = Weather | Astronomy;
 
-export interface StartData {
+export interface CategoryItem {
   sort: string;
   category: string;
   title: string;
