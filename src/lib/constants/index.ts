@@ -173,3 +173,78 @@ export const PRESET_DATA = {
     ],
     selfCustom: [{ title: "제가 커스텀할래요", icon: "🌈", color: "#929292" }]
   };
+
+export const SETTING_CATEGORY_PRESET = {
+  data: [
+    {
+      sort: "강수",
+      category: "POP",
+      title: "강수확률",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "강수",
+      category: "PTY",
+      title: "강수형태",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "강수",
+      category: "PCP",
+      title: "1시간 강수량",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "강수",
+      category: "SNO",
+      title: "1시간 신적설",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "대기",
+      category: "TMP",
+      title: "1시간 기온",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "대기",
+      category: "SKY",
+      title: "하늘상태",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "대기",
+      category: "REH",
+      title: "습도",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "바람",
+      category: "WSD",
+      title: "풍속",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "바람",
+      category: "VEC",
+      title: "풍향",
+      size: "2",
+      color: "#64B2E3"
+    },
+    {
+      sort: "바람",
+      category: "WAV",
+      title: "파고",
+      size: "2",
+      color: "#64B2E3"
+    }
+  ]
+};
