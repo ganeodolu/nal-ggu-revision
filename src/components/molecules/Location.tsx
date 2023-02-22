@@ -4,7 +4,7 @@ import styled from "styled-components";
 import LocationModalFrame from "@/components/molecules/LocationModalFrame";
 import useMap from "@/hooks/useMap";
 import { xyConvert } from "@/lib/utils/convertCoordinate";
-import { locationState } from "@/lib/store/startData";
+import { locationState } from "@/lib/store";
 
 interface HandleSubmitEvent {
   (e: React.SyntheticEvent<HTMLFormElement>): void;
@@ -49,7 +49,7 @@ interface IProps {
 const Location = ({ setPopLocationModal }: IProps) => {
   const [inputAddress, setInputAddress] = useState("");
   const [selectedAddress, setSelectedAddress] = useState([""]);
-  const [, setSelectedFinalAddress] = useRecoilState(locationState);
+  const [, setSelectedLocation] = useRecoilState(locationState);
   const inputValueRef = useRef<HTMLInputElement>(null);
 
   const handleInputSubmit: HandleSubmitEvent = (e) => {
@@ -82,7 +82,7 @@ const Location = ({ setPopLocationModal }: IProps) => {
   const handleButtonConfirm: HandleClickEvent = (e) => {
     console.log(selectedAddress);
     if (selectedAddress.length !== 1) {
-      setSelectedFinalAddress(selectedAddress);
+      setSelectedLocation(selectedAddress);
       setPopLocationModal(false);
     }
     console.log(selectedAddress);

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useRecoilState } from "recoil";
-import { dataState } from "@/lib/store/startData";
+import { dataState } from "@/lib/store";
 
 import styled from "styled-components";
 

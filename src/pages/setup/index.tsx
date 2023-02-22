@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import Category from "@/components/molecules/Category";
 import SetupHeader from "@/components/organisms/SetupHeader";
 import Select from "@/components/molecules/Select";
-import { dataState, testState } from "@/lib/store/startData";
+import { dataState, testState } from "@/lib/store";
 
 // import { DragDropContext, DropResult } from "react-beautiful-dnd";
 

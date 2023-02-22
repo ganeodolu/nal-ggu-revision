@@ -1,3 +1,12 @@
+import MainHeader from "@/components/organisms/Header";
+import WeatherBox from "@/components/organisms/WeatherBox";
+import {
+  MOCKUP_ASTRONOMY_DATA,
+  MOCKUP_WEATHER_DATA
+} from "@/lib/constants/constants";
+import { categoryOrderListState, locationState } from "@/lib/store";
+import type { Astronomy, Weather } from "@/lib/types";
+import { getAstronomyInformation, getWeatherInformation } from "@/pages/api";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   DragDropContext,
@@ -7,23 +16,15 @@ import {
 } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import MainHeader from "@/components/organisms/Header";
-import WeatherBox from "@/components/organisms/WeatherBox";
-import { getAstronomyInformation, getWeatherInformation } from "@/pages/api";
-import { locationState, startState } from "@/lib/store/startData";
-import {
-  MOCKUP_ASTRONOMY_DATA,
-  MOCKUP_WEATHER_DATA
-} from "@/lib/constants/constants";
-import type { Astronomy, Weather } from "@/lib/types";
 
 const Main = () => {
-  const [userSelectWeather, setUserSelectWeather] = useRecoilState(startState);
-  console.log(userSelectWeather);
-  const [selectedFinalAddress, setSelectedFinalAddress] =
+  const [selectedCategoryOrderList, setSelectedCategoryOrderList] =
+    useRecoilState(categoryOrderListState);
+  console.log(selectedCategoryOrderList);
+  const [selectedLocation, setSelectedLocation] =
     useRecoilState(locationState);
-  console.log(selectedFinalAddress);
-  const [name, x, y, lon, lat] = selectedFinalAddress;
+  console.log(selectedLocation);
+  const [name, x, y, lon, lat] = selectedLocation;
   const location = { name, x, y, lon, lat };
 
   const [weather, setWeather] = useState({});
@@ -64,19 +65,22 @@ const Main = () => {
         source.index === destination.index
       )
         return;
-      const newUserSelectWeather = [...userSelectWeather];
-      const [cutItem] = newUserSelectWeather.splice(result.source.index, 1);
-      newUserSelectWeather.splice(destination.index, 0, cutItem);
-      setUserSelectWeather(newUserSelectWeather);
+      const newSelectedCategoryOrderList = [...selectedCategoryOrderList];
+      const [cutItem] = newSelectedCategoryOrderList.splice(
+        result.source.index,
+        1
+      );
+      newSelectedCategoryOrderList.splice(destination.index, 0, cutItem);
+      setSelectedCategoryOrderList(newSelectedCategoryOrderList);
     },
-    [userSelectWeather]
+    [setSelectedCategoryOrderList]
   );
 
   return (
     <Wrapper className="wr">
       <MainHeader location={location.name} />
       <WeatherWrapper>
-        {/* {userSelectWeather.map((userWeather) => (
+        {/* {selectedCategoryOrderList.map((userWeather) => (
           <WeatherBox
             userWeather={userWeather}
             weather={weather}
@@ -91,7 +95,7 @@ const Main = () => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {userSelectWeather.map((userWeather, i) => (
+                {selectedCategoryOrderList.map((userWeather, i) => (
                   <Draggable
                     draggableId={userWeather.category}
                     index={i}
