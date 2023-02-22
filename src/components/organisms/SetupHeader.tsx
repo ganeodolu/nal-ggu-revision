@@ -16,7 +16,7 @@ const SetupHeader = () => {
           src="/arrow-left.png"
           onClick={() => router.push("/main")}
         />
-        <h1 className="location">커스텀</h1>
+        <h1 className="location">설정</h1>
         <button className="save_btn" onClick={alertNotice}>
           저장
         </button>

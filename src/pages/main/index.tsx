@@ -76,13 +76,13 @@ const Main = () => {
     <Wrapper className="wr">
       <MainHeader location={location.name} />
       <WeatherWrapper>
-        {userSelectWeather.map((userWeather) => (
+        {/* {userSelectWeather.map((userWeather) => (
           <WeatherBox
             userWeather={userWeather}
             weather={weather}
             key={userWeather.category}
           />
-        ))}
+        ))} */}
         <DragDropContext onDragEnd={handleChangeOrder}>
           <Droppable droppableId="infoList">
             {(provided) => (

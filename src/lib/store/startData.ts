@@ -16,7 +16,7 @@ export const locationState = atom({
   default: DEFAULT_LOCATION,
   effects_UNSTABLE: [persistAtom]
 });
-
+// FIXME 중복
 export const dataState = atom<InfoData[]>({
   key: "data",
   default: []
@@ -35,7 +35,7 @@ export const testState = atom<InfoData[]>({
     {
       category: "PTY",
       color: "#FFA57A",
-      size: "1",
+      size: "2",
       sort: "강수",
       title: "강수형태"
     },
