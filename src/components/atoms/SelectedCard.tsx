@@ -3,23 +3,20 @@ import styled from "styled-components";
 
 import ColorModal from "@/components/atoms/ColorModal";
 import ModalFrame from "@/components/atoms/ModalFrame";
+import { CategoryItem } from "@/lib/types";
 
-interface ItemType {
-  id: string;
-  prefix: string;
-  content: string;
-  sort: string;
-  title: string;
-  size: string;
-  color: string;
-  category: string;
-}
+// interface ItemType {
+//   // id: string;
+//   // prefix: string;
+//   // content: string;
+//   sort: string;
+//   title: string;
+//   size: string;
+//   color: string;
+//   category: string;
+// }
 
-interface Data {
-  data: ItemType;
-  index: number;
-}
-const SelectedCard = ({ data, index }: Data) => {
+const SelectedCard = ({ data }: { data : CategoryItem }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [saveColor, setSaveColor] = useState<string>(data.color);
 
@@ -43,7 +40,7 @@ const SelectedCard = ({ data, index }: Data) => {
       <WeatherCategoryButton>
         <span>{data.title}</span>
         <Wrappper>
-          <Item>
+          {/* <Item>
             <label htmlFor={`1${data.title}`}>
               <RadioButton
                 id={`1${data.title}`}
@@ -62,7 +59,7 @@ const SelectedCard = ({ data, index }: Data) => {
               />
               <LabelText id="2">2x1</LabelText>
             </label>
-          </Item>
+          </Item> */}
           <SelectColor
             color={saveColor}
             onClick={() => {
