@@ -3,35 +3,36 @@ import { useRecoilState } from "recoil";
 import Category from "@/components/molecules/Category";
 import SetupHeader from "@/components/organisms/SetupHeader";
 import Select from "@/components/molecules/Select";
-import { dataState, testState } from "@/lib/store";
+import { categoryListState, testState } from "@/lib/store";
 
 // import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 import styled from "styled-components";
 
 const Setup = () => {
-  const [info, setInfo] = useRecoilState(dataState);
+  const [selectedCategoryList, setSelectedCategoryList] =
+    useRecoilState(categoryListState);
 
-  const getData = async () => {
-    const response = await fetch("/data.json", { method: "GET" });
-    const data = await response.json();
-    setInfo(data.data);
-  };
+  // const getData = async () => {
+  //   const response = await fetch("/data.json", { method: "GET" });
+  //   const data = await response.json();
+  //   setSelectedCategoryList(data.data);
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   // test 용
-  const [cards, setCards] = useRecoilState(testState);
+  // const [cards, setCards] = useRecoilState(testState);
 
   // 드래그가 끝났을 때의 동작을 지정해주는 함수 --> test용이라 수정하셔도 됩니다!!!
   // const onDragEnd = (result: DropResult) => {
   //   if (!result.destination) return;
-  //   const items = [...info];
+  //   const items = [...selectedCategoryList];
   //   const [reorderedItem] = items.splice(result.source.index, 1);
   //   items.splice(result.destination.index, 0, reorderedItem);
-  //   setInfo(items);
+  //   setSelectedCategoryList(items);
   // };
 
   // fake data generator
@@ -122,7 +123,7 @@ const Setup = () => {
     <div>
       <SetupHeader />
       <Container>
-        <Select cards={cards} />
+        <Select cards={selectedCategoryList} />
         <Category />
       </Container>
     </div>

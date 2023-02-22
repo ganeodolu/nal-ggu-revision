@@ -23,10 +23,3 @@ export interface CategoryItem {
   size: string;
   color: string;
 }
-export interface InfoData {
-  sort: string;
-  category: string;
-  title: string;
-  size: string;
-  color: string;
-}

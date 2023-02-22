@@ -1,18 +1,19 @@
 import React from "react";
 
 import { useRecoilState } from "recoil";
-import { dataState } from "@/lib/store";
+import { categoryListState } from "@/lib/store";
 
 import styled from "styled-components";
 
 const Category = () => {
-  const [info, setInfo] = useRecoilState(dataState);
+  const [selectedCategoryList, setSelectedCategoryList] =
+    useRecoilState(categoryListState);
 
   const infoSort = (name: string) => {
     let newArr = [];
-    for (let i = 0; i < info.length; i++) {
-      if (info.map((data) => data.sort)[i] === name) {
-        newArr.push(info[i]);
+    for (let i = 0; i < selectedCategoryList.length; i++) {
+      if (selectedCategoryList.map((data) => data.sort)[i] === name) {
+        newArr.push(selectedCategoryList[i]);
       }
     }
     return newArr;

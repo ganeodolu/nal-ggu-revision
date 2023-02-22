@@ -1,7 +1,7 @@
 import { DEFAULT_LOCATION } from "@/lib/constants";
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { CategoryItem, InfoData } from "../types";
+import { CategoryItem } from "../types";
 
 const { persistAtom } = recoilPersist();
 
@@ -17,12 +17,12 @@ export const locationState = atom({
   effects_UNSTABLE: [persistAtom]
 });
 // FIXME 중복
-export const dataState = atom<InfoData[]>({
+export const dataState = atom<CategoryItem[]>({
   key: "data",
   default: []
 });
 
-export const testState = atom<InfoData[]>({
+export const testState = atom<CategoryItem[]>({
   key: "test",
   default: [
     {

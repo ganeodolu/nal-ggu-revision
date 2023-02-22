@@ -1,12 +1,11 @@
-import React from "react";
-
-import styled from "styled-components";
-import { InfoData } from "@/lib/types";
 import SelectedCard from "@/components/atoms/SelectedCard";
+import { CategoryItem } from "@/lib/types";
+import React from "react";
+import styled from "styled-components";
 
 // import { Droppable, Draggable } from "react-beautiful-dnd";
 
-const Select = ({ cards }: { cards: InfoData[] }) => {
+const Select = ({ cards }: { cards: CategoryItem[] }) => {
   return (
     <Container>
       {/* <Title>{prefix}</Title>
