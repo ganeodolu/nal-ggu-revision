@@ -35,9 +35,9 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
     setSaveColor(colorData);
   };
 
-  const alertNotice = () => {
-    alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
-  };
+  // const alertNotice = () => {
+  //   alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
+  // };
 
   const onRemoveCategory = (index: number) => {
     setSelectedCategoryList((prev) => {
@@ -77,7 +77,7 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
             }}
           ></SelectColor>
           <button onClick={() => onRemoveCategory(index)}>삭제</button>
-          <DotsImage src="/dots.png" alt="dots" onClick={alertNotice} />
+          {/* <DotsImage src="/dots.png" alt="dots" onClick={alertNotice} /> */}
         </Wrappper>
       </WeatherCategoryButton>
       {isModalOpen ? (

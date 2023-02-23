@@ -1,11 +1,9 @@
-import React from "react";
-
-import { useRecoilState } from "recoil";
-import { categoryListState } from "@/lib/store";
-
-import styled from "styled-components";
 import { SETTING_CATEGORY_PRESET } from "@/lib/constants";
+import { categoryListState } from "@/lib/store";
 import { CategoryItem } from "@/lib/types";
+import React from "react";
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
 
 const Category = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
@@ -15,10 +13,11 @@ const Category = () => {
     return SETTING_CATEGORY_PRESET.filter((categoryInfo) => {
       return (
         categoryInfo.sort === name &&
-        selectedCategoryList.every((item) => item.category !== categoryInfo.category)
+        selectedCategoryList.every(
+          (item) => item.category !== categoryInfo.category
+        )
       );
-    })
-
+    });
   };
 
   // const alertProblems = () => {
@@ -26,9 +25,9 @@ const Category = () => {
   // };
   const onAddCategory = (category: CategoryItem) => {
     setSelectedCategoryList((prev) => {
-      return [...prev, category]
-    })
-  }
+      return [...prev, category];
+    });
+  };
 
   return (
     <CategoryContainer>
@@ -37,8 +36,10 @@ const Category = () => {
         {restCategoryList("대기").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
-            <button onClick={() => onAddCategory(data)}>추가</button>
-            <DotsImage src="/dots.png" alt="dots" />
+            <Wrappper>
+              <button onClick={() => onAddCategory(data)}>추가</button>
+              {/* <DotsImage src="/dots.png" alt="dots" /> */}
+            </Wrappper>
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -47,8 +48,10 @@ const Category = () => {
         {restCategoryList("강수").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
-            <button onClick={() => onAddCategory(data)}>추가</button>
-            <DotsImage src="/dots.png" alt="dots" />
+            <Wrappper>
+              <button onClick={() => onAddCategory(data)}>추가</button>
+              {/* <DotsImage src="/dots.png" alt="dots" /> */}
+            </Wrappper>
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -57,8 +60,10 @@ const Category = () => {
         {restCategoryList("바람").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
-            <button onClick={() => onAddCategory(data)}>추가</button>
-            <DotsImage src="/dots.png" alt="dots" />
+            <Wrappper>
+              <button onClick={() => onAddCategory(data)}>추가</button>
+              {/* <DotsImage src="/dots.png" alt="dots" /> */}
+            </Wrappper>
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -67,8 +72,10 @@ const Category = () => {
         {restCategoryList("천문").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
-            <button onClick={() => onAddCategory(data)}>추가</button>
-            <DotsImage src="/dots.png" alt="dots" />
+            <Wrappper>
+              <button onClick={() => onAddCategory(data)}>추가</button>
+              {/* <DotsImage src="/dots.png" alt="dots" /> */}
+            </Wrappper>
           </WeatherCategoryButton>
         ))}
       </WeatherCategory>
@@ -105,6 +112,11 @@ const WeatherCategoryButton = styled.div`
   &:hover {
     background-color: #e7e7e7;
   }
+`;
+
+const Wrappper = styled.div`
+  ${(props) => props.theme.flex.flexBox()};
+  flex-direction: row;
 `;
 
 const DotsImage = styled.img`
