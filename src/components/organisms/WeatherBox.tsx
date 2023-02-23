@@ -8,8 +8,6 @@ interface Props {
 }
 
 const WeatherBox = ({ userWeather, weather }: Props) => {
-  // console.log(userWeather);
-  // console.log(weather);
   const [weatherData, setWeatherData] = useState<string>();
   const [weatherImg, setWeatherImg] = useState<string>();
   const [weatherUnit, setWeatherUnit] = useState<string>();

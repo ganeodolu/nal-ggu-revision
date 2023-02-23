@@ -20,17 +20,23 @@ const Category = () => {
 
   };
 
-  const alertProblems = () => {
-    alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
-  };
+  // const alertProblems = () => {
+  //   alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
+  // };
+  const onAddCategory = (category) => {
+    setSelectedCategoryList((prev) => {
+      return [...prev, category]
+    })
+  }
 
   return (
     <CategoryContainer>
       <WeatherCategory>
         <WeatherCategoryTitle>⛅ 대기</WeatherCategoryTitle>
         {restCategoryList("대기").map((data) => (
-          <WeatherCategoryButton key={data.category} onClick={alertProblems}>
+          <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
+            <button onClick={() => onAddCategory(data)}>추가</button>
             <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
@@ -38,8 +44,9 @@ const Category = () => {
       <WeatherCategory>
         <WeatherCategoryTitle>☔️ 강수</WeatherCategoryTitle>
         {restCategoryList("강수").map((data) => (
-          <WeatherCategoryButton key={data.category} onClick={alertProblems}>
+          <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
+            <button onClick={() => onAddCategory(data)}>추가</button>
             <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
@@ -49,6 +56,7 @@ const Category = () => {
         {restCategoryList("바람").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
+            <button onClick={() => onAddCategory(data)}>추가</button>
             <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}
@@ -58,6 +66,7 @@ const Category = () => {
         {restCategoryList("천문").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
+            <button onClick={() => onAddCategory(data)}>추가</button>
             <DotsImage src="/dots.png" alt="dots" />
           </WeatherCategoryButton>
         ))}

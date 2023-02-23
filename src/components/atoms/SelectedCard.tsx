@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import { useRecoilState } from "recoil";
+import { categoryListState } from "@/lib/store";
 import ColorModal from "@/components/atoms/ColorModal";
 import ModalFrame from "@/components/atoms/ModalFrame";
 import { CategoryItem } from "@/lib/types";
@@ -17,6 +18,9 @@ import { CategoryItem } from "@/lib/types";
 // }
 
 const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) => {
+  const [selectedCategoryList, setSelectedCategoryList] =
+    useRecoilState(categoryListState);
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [saveColor, setSaveColor] = useState<string>(data.color);
 
@@ -34,6 +38,12 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
   const alertNotice = () => {
     alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
   };
+
+  const onRemoveCategory = (index: number) => {
+    setSelectedCategoryList((prev) => {
+      return prev.filter((val, valIdx) => valIdx !== index)
+    })
+  }
 
   return (
     <>
@@ -66,6 +76,7 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
               setIsModalOpen(true);
             }}
           ></SelectColor>
+          <button onClick={() => onRemoveCategory(index)}>삭제</button>
           <DotsImage src="/dots.png" alt="dots" onClick={alertNotice} />
         </Wrappper>
       </WeatherCategoryButton>
