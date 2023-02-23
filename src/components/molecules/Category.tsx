@@ -5,6 +5,7 @@ import { categoryListState } from "@/lib/store";
 
 import styled from "styled-components";
 import { SETTING_CATEGORY_PRESET } from "@/lib/constants";
+import { CategoryItem } from "@/lib/types";
 
 const Category = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
@@ -23,7 +24,7 @@ const Category = () => {
   // const alertProblems = () => {
   //   alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
   // };
-  const onAddCategory = (category) => {
+  const onAddCategory = (category: CategoryItem) => {
     setSelectedCategoryList((prev) => {
       return [...prev, category]
     })
