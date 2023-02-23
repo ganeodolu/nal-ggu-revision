@@ -64,6 +64,7 @@ const Select = ({ cards }: { cards: CategoryItem[] }) => {
                           // isDragging={Snapshot.isDragging}
                           data={userWeather}
                           key={userWeather.category}
+                          index={i}
                         />
                       </div>
                     );

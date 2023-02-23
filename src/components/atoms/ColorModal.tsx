@@ -1,4 +1,6 @@
+import { categoryListState } from "@/lib/store";
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 const color = [
@@ -12,17 +14,25 @@ const color = [
   "#B0ABB7"
 ];
 interface IColorModal {
+  index: number;
   setSave: (x: string) => void;
   saveColor: string;
-  onhandleModal: () => void;
+  onHandleModal: () => void;
 }
-const ColorModal = ({ setSave, saveColor, onhandleModal }: IColorModal) => {
-  const [selectedColor, setSelectedColor] = useState<string>("");
+const ColorModal = ({
+  index,
+  setSave,
+  saveColor,
+  onHandleModal
+}: IColorModal) => {
+  const [selectedCategoryList, setSelectedCategoryList] =
+    useRecoilState(categoryListState);
+  const [selectedColor, setSelectedColor] = useState("");
   // 바뀌는 color를 saveColor로 세팅
-  const [isSaveColor, setSaveColor] = useState<string>(saveColor);
+  const [isSaveColor, setSaveColor] = useState(saveColor);
 
   // 버튼 클릭시 색상 선택되는 handler
-  const onhandleColor = (color: string) => {
+  const onHandleColor = (color: string) => {
     setSelectedColor(color);
     setSaveColor(color); // setSaveColor로 color값 저장
   };
@@ -30,7 +40,15 @@ const ColorModal = ({ setSave, saveColor, onhandleModal }: IColorModal) => {
   // 모달 닫으면 선택된 color값 전달
   const fn = () => {
     setSave(isSaveColor);
-    onhandleModal();
+    onHandleModal();
+    setSelectedCategoryList((prev) => {
+      let newSelectedCategoryList = [...prev];
+      newSelectedCategoryList[index] = {
+        ...newSelectedCategoryList[index],
+        color: selectedColor
+      };
+      return newSelectedCategoryList;
+    });
   };
   return (
     <Container>
@@ -40,7 +58,7 @@ const ColorModal = ({ setSave, saveColor, onhandleModal }: IColorModal) => {
           return color === selectedColor ? (
             <SelectedColorButton
               onClick={() => {
-                onhandleColor(color);
+                onHandleColor(color);
               }}
               key={idx}
               color={color}
@@ -50,14 +68,14 @@ const ColorModal = ({ setSave, saveColor, onhandleModal }: IColorModal) => {
               key={idx}
               color={color}
               onClick={() => {
-                onhandleColor(color);
+                onHandleColor(color);
               }}
             />
           );
         })}
       </ColorSection>
       <ButtonSection>
-        <Button onClick={onhandleModal}>취소</Button>
+        <Button onClick={onHandleModal}>취소</Button>
         <Button onClick={fn}>저장</Button>
       </ButtonSection>
     </Container>

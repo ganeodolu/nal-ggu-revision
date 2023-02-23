@@ -16,7 +16,7 @@ import { CategoryItem } from "@/lib/types";
 //   category: string;
 // }
 
-const SelectedCard = ({ data }: { data : CategoryItem }) => {
+const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [saveColor, setSaveColor] = useState<string>(data.color);
 
@@ -72,9 +72,10 @@ const SelectedCard = ({ data }: { data : CategoryItem }) => {
       {isModalOpen ? (
         <ModalFrame>
           <ColorModal
+            index={index}
             setSave={onSetColor}
             saveColor={saveColor}
-            onhandleModal={() => {
+            onHandleModal={() => {
               oncloseModal();
             }}
           />
