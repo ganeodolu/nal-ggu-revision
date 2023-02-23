@@ -14,21 +14,21 @@ const Start = () => {
   const initialData = [
     [
       {
-        sort: "비",
+        sort: "강수",
         category: "POP",
         title: "강수확률",
         size: "2",
         color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
-        sort: "비",
+        sort: "강수",
         category: "PCP",
         title: "1시간 강수량",
         size: "2",
         color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
       },
       {
-        sort: "비",
+        sort: "강수",
         category: "PTY",
         title: "강수형태",
         size: "2",
@@ -65,7 +65,7 @@ const Start = () => {
     ]
     // [
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "POP",
     //     title: "강수확률",
     //     size: "2",
@@ -130,7 +130,7 @@ const Start = () => {
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "PCP",
     //     title: "1시간 강수량",
     //     size: "2",
@@ -158,7 +158,7 @@ const Start = () => {
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "POP",
     //     title: "강수확률",
     //     size: "1",
@@ -174,7 +174,7 @@ const Start = () => {
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "POP",
     //     title: "강수확률",
     //     size: "2",
@@ -209,7 +209,7 @@ const Start = () => {
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "PCP",
     //     title: "1시간 강수량",
     //     size: "2",
@@ -219,14 +219,14 @@ const Start = () => {
     // [
     //   {
     //     sort: "대기",
-    //     category: "sunrise",
+    //     category: "SUNRISE",
     //     title: "일출",
     //     size: "2",
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
     //     sort: "대기",
-    //     category: "sunset",
+    //     category: "SUNSET",
     //     title: "일몰",
     //     size: "2",
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
@@ -246,21 +246,21 @@ const Start = () => {
     //   //   color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)],
     //   // },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "POP",
     //     title: "강수확률",
     //     size: "2",
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "PCP",
     //     title: "1시간 강수량",
     //     size: "1",
     //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
     //   },
     //   {
-    //     sort: "비",
+    //     sort: "강수",
     //     category: "REH",
     //     title: "습도",
     //     size: "1",

@@ -108,7 +108,7 @@ const WeatherBox = ({ userWeather, weather }: Props) => {
           setWeatherImg("/icon/wind.png");
           setWeatherUnit("m/s");
           return;
-        case "sunrise":
+        case "SUNRISE":
           setWeatherData(
             weather[CATEGORY].value.slice(0, 2) +
               ":" +
@@ -117,7 +117,7 @@ const WeatherBox = ({ userWeather, weather }: Props) => {
           setWeatherImg("/icon/sunrise.png");
           setWeatherUnit("");
           return;
-        case "sunset":
+        case "SUNSET":
           setWeatherData(
             weather[CATEGORY].value.slice(0, 2) +
               ":" +

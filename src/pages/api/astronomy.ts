@@ -22,11 +22,11 @@ export const getAstronomyInformation = async (lon: string, lat: string) => {
 
   return [
     {
-      category: "sunrise",
+      category: "SUNRISE",
       value: sunrise.trim()
     },
     {
-      category: "sunset",
+      category: "SUNSET",
       value: sunset.trim()
     }
   ];
