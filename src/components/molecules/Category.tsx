@@ -4,19 +4,20 @@ import { useRecoilState } from "recoil";
 import { categoryListState } from "@/lib/store";
 
 import styled from "styled-components";
+import { SETTING_CATEGORY_PRESET } from "@/lib/constants";
 
 const Category = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
 
-  const infoSort = (name: string) => {
-    let newArr = [];
-    for (let i = 0; i < selectedCategoryList.length; i++) {
-      if (selectedCategoryList.map((data) => data.sort)[i] === name) {
-        newArr.push(selectedCategoryList[i]);
-      }
-    }
-    return newArr;
+  const restCategoryList = (name: string) => {
+    return SETTING_CATEGORY_PRESET.filter((categoryInfo) => {
+      return (
+        categoryInfo.sort === name &&
+        selectedCategoryList.every((item) => item.category !== categoryInfo.category)
+      );
+    })
+
   };
 
   const alertProblems = () => {
@@ -26,8 +27,8 @@ const Category = () => {
   return (
     <CategoryContainer>
       <WeatherCategory>
-        <WeatherCategoryTitle>🌤 대기</WeatherCategoryTitle>
-        {infoSort("대기").map((data) => (
+        <WeatherCategoryTitle>⛅ 대기</WeatherCategoryTitle>
+        {restCategoryList("대기").map((data) => (
           <WeatherCategoryButton key={data.category} onClick={alertProblems}>
             <span>{data.title}</span>
             <DotsImage src="/dots.png" alt="dots" />
@@ -36,7 +37,7 @@ const Category = () => {
       </WeatherCategory>
       <WeatherCategory>
         <WeatherCategoryTitle>☔️ 강수</WeatherCategoryTitle>
-        {infoSort("강수").map((data) => (
+        {restCategoryList("강수").map((data) => (
           <WeatherCategoryButton key={data.category} onClick={alertProblems}>
             <span>{data.title}</span>
             <DotsImage src="/dots.png" alt="dots" />
@@ -45,7 +46,16 @@ const Category = () => {
       </WeatherCategory>
       <WeatherCategory>
         <WeatherCategoryTitle>💨 바람</WeatherCategoryTitle>
-        {infoSort("바람").map((data) => (
+        {restCategoryList("바람").map((data) => (
+          <WeatherCategoryButton key={data.category}>
+            <span>{data.title}</span>
+            <DotsImage src="/dots.png" alt="dots" />
+          </WeatherCategoryButton>
+        ))}
+      </WeatherCategory>
+      <WeatherCategory>
+        <WeatherCategoryTitle>🌅 천문</WeatherCategoryTitle>
+        {restCategoryList("천문").map((data) => (
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
             <DotsImage src="/dots.png" alt="dots" />
