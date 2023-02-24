@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import LocationModalFrame from "@/components/molecules/LocationModalFrame";
 import useMap from "@/hooks/useMap";
-import { xyConvert } from "@/lib/utils/convertCoordinate";
+import { xyConvert } from "@/lib/utils";
 import { locationState } from "@/lib/store";
 
 interface HandleSubmitEvent {

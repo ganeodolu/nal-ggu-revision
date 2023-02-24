@@ -42,3 +42,40 @@ export const xyConvert: Convert = (v1, v2) => {
 
   return rs;
 };
+
+const FORECAST_TIME_NUMBER_ARRAY = [
+  200, 500, 800, 1100, 1400, 1700, 2000, 2300
+];
+
+const FORECAST_TIME_STRING_ARRAY = [
+  "0200",
+  "0500",
+  "0800",
+  "1100",
+  "1400",
+  "1700",
+  "2000",
+  "2300"
+];
+
+export const timeTransformWithBufferHour = (beforeHour: number) => {
+  let current = new Date(Date.now() - 1000 * 60 * 60 * beforeHour);
+  let time: number = current.getHours() * 100;
+  let resultTime;
+  time;
+  if (time < 200) {
+    current = new Date(current.setDate(current.getDate() - 1));
+    resultTime = String(2300);
+  } else {
+    const closestIndex = FORECAST_TIME_NUMBER_ARRAY.findIndex((val) => {
+      return time <= val;
+    });
+    resultTime = FORECAST_TIME_STRING_ARRAY[closestIndex];
+  }
+  let resultDate = current.toLocaleDateString().replaceAll(" ", "").split(".");
+  resultDate[1] = resultDate[1].padStart(2, "0");
+  resultDate[2] = resultDate[2].padStart(2, "0");
+
+  return [String(resultDate.join("")), resultTime];
+};
+

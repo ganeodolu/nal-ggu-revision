@@ -1,21 +1,8 @@
+import { timeTransformWithBufferHour } from "@/lib/utils";
 import { apiWithWeather } from "./main";
 
-const timeTransform = (beforeHour: number) => {
-  const current = new Date(Date.now() - 1000 * 60 * 60 * beforeHour);
-  let date = Number(
-    current.toLocaleDateString().replaceAll(".", "").replaceAll(" ", "")
-  );
-  let time: number = current.getHours() * 100;
-  if (time < 200) {
-    date--;
-    time = 2330;
-  }
-
-  return [String(date), time < 1000 ? `0${time}` : String(time)];
-};
-
 export const getWeatherInformation = async (x: string, y: string) => {
-  const [base_date, base_time] = timeTransform(1);
+  const [base_date, base_time] = timeTransformWithBufferHour(0.5);
   const response = await apiWithWeather({
     params: {
       serviceKey: process.env.NEXT_PUBLIC_WEATHER_API_KEY,
