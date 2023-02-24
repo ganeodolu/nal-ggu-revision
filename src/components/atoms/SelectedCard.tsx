@@ -6,16 +6,6 @@ import ColorModal from "@/components/atoms/ColorModal";
 import ModalFrame from "@/components/atoms/ModalFrame";
 import { CategoryItem } from "@/lib/types";
 
-// interface ItemType {
-//   // id: string;
-//   // prefix: string;
-//   // content: string;
-//   sort: string;
-//   title: string;
-//   size: string;
-//   color: string;
-//   category: string;
-// }
 
 const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) => {
   const [selectedCategoryList, setSelectedCategoryList] =
