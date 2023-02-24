@@ -1,6 +1,6 @@
 import { apiWithAstronomy } from "./main";
 
-const makeDate = () => {
+export const makeDate = () => {
   const date = new Date().toISOString();
   const [year, month, day] = date.split("T")[0].split("-");
 

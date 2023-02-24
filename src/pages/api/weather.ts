@@ -15,5 +15,6 @@ export const getWeatherInformation = async (x: string, y: string) => {
       dataType: "JSON"
     }
   });
+  
   return response.data.response.body.items.item;
 };
