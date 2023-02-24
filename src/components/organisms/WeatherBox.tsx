@@ -3,11 +3,11 @@ import styled, { css } from "styled-components";
 import { CategoryItem } from "@/lib/types";
 
 interface Props {
-  userWeather: CategoryItem;
-  weather: any;
+  selectedCategoryItem: CategoryItem;
+  forecastData: any;
 }
 
-const WeatherBox = ({ userWeather, weather }: Props) => {
+const WeatherBox = ({ selectedCategoryItem, forecastData }: Props) => {
   const [weatherData, setWeatherData] = useState<string>();
   const [weatherImg, setWeatherImg] = useState<string>();
   const [weatherUnit, setWeatherUnit] = useState<string>();
@@ -50,94 +50,88 @@ const WeatherBox = ({ userWeather, weather }: Props) => {
   };
 
   useEffect(() => {
-    const CATEGORY = userWeather.category;
+    const CATEGORY = selectedCategoryItem.category;
 
-    if (weather[CATEGORY]) {
+    if (forecastData[CATEGORY]) {
       switch (CATEGORY) {
         case "SKY":
-          setWeatherData(skyTransform(weather[CATEGORY].fcstValue));
+          setWeatherData(skyTransform(forecastData[CATEGORY].fcstValue));
           return;
         case "PTY":
-          setWeatherData(rainTransform(weather[CATEGORY].fcstValue));
+          setWeatherData(rainTransform(forecastData[CATEGORY].fcstValue));
           return;
         case "TMP":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherUnit("℃");
           setWeatherImg("/icon/temp.png");
           return;
         case "PCP":
-          if (weather[CATEGORY].fcstValue === "강수없음") {
-            setWeatherUnit("");
-            setWeatherData(weather[CATEGORY].fcstValue);
-          } else {
-            setWeatherData(weather[CATEGORY].fcstValue);
-            setWeatherUnit("mm");
-          }
+          setWeatherData(forecastData[CATEGORY].fcstValue);
+          setWeatherUnit("");
           setWeatherImg("/icon/rain_onehour.png");
-
           return;
         case "SNO":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/snow.png");
           setWeatherUnit("cm");
           return;
         case "POP":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/rainy.png");
           setWeatherUnit("%");
           return;
         case "REH":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/wet.png");
           setWeatherUnit("%");
           return;
         case "WAV":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/wave.png");
           setWeatherUnit("M");
           return;
         case "VEC":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/wind2.png");
           setWeatherUnit("deg");
           return;
         case "WSD":
-          setWeatherData(weather[CATEGORY].fcstValue);
+          setWeatherData(forecastData[CATEGORY].fcstValue);
           setWeatherImg("/icon/wind.png");
           setWeatherUnit("m/s");
           return;
         case "SUNRISE":
           setWeatherData(
-            weather[CATEGORY].value.slice(0, 2) +
+            forecastData[CATEGORY].value.slice(0, 2) +
               ":" +
-              weather[CATEGORY].value.slice(2)
+              forecastData[CATEGORY].value.slice(2)
           );
           setWeatherImg("/icon/sunrise.png");
           setWeatherUnit("");
           return;
         case "SUNSET":
           setWeatherData(
-            weather[CATEGORY].value.slice(0, 2) +
+            forecastData[CATEGORY].value.slice(0, 2) +
               ":" +
-              weather[CATEGORY].value.slice(2)
+              forecastData[CATEGORY].value.slice(2)
           );
           setWeatherImg("/icon/sunset.png");
           setWeatherUnit("");
           return;
         default:
-          return setWeatherData(weather[CATEGORY].fcstValue);
+          return setWeatherData(forecastData[CATEGORY].fcstValue);
       }
     }
-  }, [weather]);
+  }, [forecastData]);
 
   return (
     <Wrapper
-      size={userWeather.size === "1" ? "40%" : "90%"}
-      color={userWeather.color}
+      size={selectedCategoryItem.size === "1" ? "40%" : "90%"}
+      color={selectedCategoryItem.color}
     >
       <img src={weatherImg} />
       <div className="weatherDataWrapper">
-        <div className="weatherTitle">{userWeather.title}</div>
+        <div className="weatherTitle">{selectedCategoryItem.title}</div>
         <div className="weatherDataGroup">
           <div className="weatherData">{weatherData}</div>
           <div className="weatherUnit">{weatherUnit}</div>
