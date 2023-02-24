@@ -72,10 +72,13 @@ export const timeTransformWithBufferHour = (beforeHour: number) => {
     });
     resultTime = FORECAST_TIME_STRING_ARRAY[closestIndex];
   }
-  let resultDate = current.toLocaleDateString().replaceAll(" ", "").split(".");
-  resultDate[1] = resultDate[1].padStart(2, "0");
-  resultDate[2] = resultDate[2].padStart(2, "0");
+  let resultDate = current
+    .toISOString()
+    .slice(0, 10)
+    .replace(/-/g, "")
+    .split(".")
+    .toString();
 
-  return [String(resultDate.join("")), resultTime];
+  return [resultDate, resultTime];
 };
 
