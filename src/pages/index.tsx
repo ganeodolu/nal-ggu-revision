@@ -7,13 +7,11 @@ import {
 import { categoryListState } from "@/lib/store";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 const Start = () => {
-  // const router = useRouter();
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
 
@@ -26,10 +24,6 @@ const Start = () => {
     setSelectedCategoryList(makeCategoryList);
   };
   const { preset, selfCustom } = GROUP_CATEGORY;
-
-  // if (selectedCategoryList.length > 0) {
-  //   router.push("/main");
-  // }
 
 
   return (
@@ -101,6 +95,8 @@ const Wrapper = styled.div`
   padding-left: 7rem;
   padding-right: 7rem;
   user-select: none;
+  max-width: 47rem;
+  min-width: 22rem;
   @media screen and (max-width: 32rem) {
     padding-left: 4rem;
     padding-right: 4rem;

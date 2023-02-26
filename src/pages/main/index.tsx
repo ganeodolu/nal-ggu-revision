@@ -136,6 +136,8 @@ const Main = () => {
 
 const Wrapper = styled.section`
   min-height: 100vh;
+  max-width: 47rem;
+  min-width: 22rem;
 `;
 
 const CategoryWrapper = styled.article`
