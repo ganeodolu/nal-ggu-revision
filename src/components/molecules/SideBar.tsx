@@ -17,11 +17,11 @@ const SideBar = ({ isOpenSideBar, hideSideBar }: SideBarType) => {
           <div className="logoContainer">
             <img className="logo" src="/sun.png" />
           </div>
-          <button
-            onClick={() => router.push("/setup")}
-            className="customBtn"
-          >
+          <button onClick={() => router.push("/setup")} className="customBtn">
             🛎 커스텀 설정
+          </button>
+          <button onClick={() => router.push("/")} className="customBtn">
+            🛎 프리셋 보기
           </button>
         </SideBarNav>
         <SideBarBlank isOpenSideBar={isOpenSideBar} onClick={hideSideBar} />
