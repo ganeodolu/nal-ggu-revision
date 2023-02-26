@@ -144,7 +144,7 @@ const LabelText = styled.span`
 `;
 
 const AddRemoveButton = styled.button`
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 5px 15px;
   border: none;
   background-color: #cdcdcd;
