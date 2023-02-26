@@ -16,6 +16,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { makeDate } from "../api/astronomy";
 import type { FullData } from "@/lib/types";
+import Loading from "@/components/atoms/Loading";
 
 const Main = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
@@ -114,77 +115,65 @@ const Main = () => {
   );
 
 
+  // if (isWeatherDataLoading || isAstronomyDataLoading) {
+  //     return <span>로딩중</span>;
+  // }
   
-  if (isWeatherDataError || isAstronomyDataError) {
-    return <button onClick={() => location.reload()}>새로고침해주세요</button>;
-  }
-  if (!isWeatherDataFetched || !isAstronomyDataFetched) {
-    return <span>로딩중</span>;
-  }
+  // if (isWeatherDataError || isAstronomyDataError) {
+  //   return <span>데이터가 없습니다 다른 장소를 선택해주세요</span>;
+  // }
 
+    // TODO 로딩스피너 사용
 
   return (
     <Wrapper className="wr">
-      {/* <Suspense fallback={<>로딩</>}>
-        <ErrorBoundary
-          onReset={reset}
-          fallbackRender={({ resetErrorBoundary }) => (
-            <div>
-              There was an error!
-              <button onClick={() => resetErrorBoundary()}>Try again</button>
-            </div>
-          )}
-        > */}
-          <MainHeader location={location.name} />
-          <WeatherWrapper>
-            {/* {selectedCategoryList.map((selectedCategoryItem) => (
-          <WeatherBox
-            selectedCategoryItem={selectedCategoryItem}
-            forecastData={forecastData}
-            key={selectedCategoryItem.category}
-          />
-        ))} */}
-
-            <DragDropContext onDragEnd={handleChangeOrder}>
-              <Droppable droppableId="infoList">
-                {(provided) => (
-                  <div
-                    className="infoList"
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                  >
-                    {selectedCategoryList.map((selectedCategoryItem, i) => (
-                      <Draggable
-                        draggableId={selectedCategoryItem.category}
-                        index={i}
-                        key={selectedCategoryItem.category}
-                      >
-                        {(provided, Snapshot) => {
-                          return (
-                            <div
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              ref={provided.innerRef}
-                            >
-                              <WeatherBox
-                                // isDragging={Snapshot.isDragging}
-                                selectedCategoryItem={selectedCategoryItem}
-                                forecastData={forecastData}
-                                key={selectedCategoryItem.category}
-                              />
-                            </div>
-                          );
-                        }}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-          </WeatherWrapper>
-        {/* </ErrorBoundary>
-      </Suspense> */}
+      <MainHeader location={location.name} />
+      {(isWeatherDataLoading || isAstronomyDataLoading) && (
+        <LoadingWrapper>
+          <Loading />
+        </LoadingWrapper>
+      )}
+      <WeatherWrapper>
+        {(weatherData && astronomyData) ? (
+          <DragDropContext onDragEnd={handleChangeOrder}>
+            <Droppable droppableId="infoList">
+              {(provided) => (
+                <div
+                  className="infoList"
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                >
+                  {selectedCategoryList.map((selectedCategoryItem, i) => (
+                    <Draggable
+                      draggableId={selectedCategoryItem.category}
+                      index={i}
+                      key={selectedCategoryItem.category}
+                    >
+                      {(provided, Snapshot) => {
+                        return (
+                          <div
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                          >
+                            <WeatherBox
+                              // isDragging={Snapshot.isDragging}
+                              selectedCategoryItem={selectedCategoryItem}
+                              forecastData={forecastData}
+                              key={selectedCategoryItem.category}
+                            />
+                          </div>
+                        );
+                      }}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+        ): <>데이터가 없습니다</>}
+      </WeatherWrapper>
     </Wrapper>
   );
 };
@@ -192,6 +181,14 @@ const Main = () => {
 const Wrapper = styled.section`
   min-height: 100vh;
 `;
+const LoadingWrapper = styled.article`
+  padding-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+`;
+
 const WeatherWrapper = styled.article`
   padding-top: 60px;
   display: flex;

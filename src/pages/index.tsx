@@ -13,7 +13,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 const Start = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
 
