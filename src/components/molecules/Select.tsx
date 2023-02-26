@@ -34,9 +34,6 @@ const Select = ({ cards }: { cards: CategoryItem[] }) => {
   return (
     <Container>
       <Title>날꾸를 마음대로 꾸며주세요!</Title>
-      {/* {cards.map((card: any, idx: number) => (
-        <SelectedCard key={idx} data={card} index={idx} />
-      ))} */}
       <DragDropContext onDragEnd={handleChangeOrder}>
         <Droppable droppableId="infoList">
           {(provided) => (

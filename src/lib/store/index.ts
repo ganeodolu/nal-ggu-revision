@@ -16,35 +16,3 @@ export const locationState = atom({
   default: DEFAULT_LOCATION,
   effects_UNSTABLE: [persistAtom]
 });
-
-// export const dataState = atom<CategoryItem[]>({
-//   key: "data",
-//   default: []
-// });
-
-// export const testState = atom<CategoryItem[]>({
-//   key: "test",
-//   default: [
-//     {
-//       category: "POP",
-//       color: "#64B2E3",
-//       size: "2",
-//       sort: "강수",
-//       title: "강수확률"
-//     },
-//     {
-//       category: "PTY",
-//       color: "#FFA57A",
-//       size: "2",
-//       sort: "강수",
-//       title: "강수형태"
-//     },
-//     {
-//       category: "PCP",
-//       color: "#56DFA3",
-//       size: "2",
-//       sort: "강수",
-//       title: "1시간 강수량"
-//     }
-//   ]
-// });
