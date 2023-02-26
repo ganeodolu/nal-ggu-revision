@@ -20,9 +20,6 @@ const Category = () => {
     });
   };
 
-  // const alertProblems = () => {
-  //   alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
-  // };
   const onAddCategory = (category: CategoryItem) => {
     setSelectedCategoryList((prev) => {
       return [...prev, category];
@@ -37,7 +34,7 @@ const Category = () => {
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
             <Wrappper>
-              <button onClick={() => onAddCategory(data)}>추가</button>
+              <AddRemoveButton onClick={() => onAddCategory(data)}>추가</AddRemoveButton>
               {/* <DotsImage src="/dots.png" alt="dots" /> */}
             </Wrappper>
           </WeatherCategoryButton>
@@ -49,7 +46,7 @@ const Category = () => {
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
             <Wrappper>
-              <button onClick={() => onAddCategory(data)}>추가</button>
+              <AddRemoveButton onClick={() => onAddCategory(data)}>추가</AddRemoveButton>
               {/* <DotsImage src="/dots.png" alt="dots" /> */}
             </Wrappper>
           </WeatherCategoryButton>
@@ -61,7 +58,7 @@ const Category = () => {
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
             <Wrappper>
-              <button onClick={() => onAddCategory(data)}>추가</button>
+              <AddRemoveButton onClick={() => onAddCategory(data)}>추가</AddRemoveButton>
               {/* <DotsImage src="/dots.png" alt="dots" /> */}
             </Wrappper>
           </WeatherCategoryButton>
@@ -73,7 +70,7 @@ const Category = () => {
           <WeatherCategoryButton key={data.category}>
             <span>{data.title}</span>
             <Wrappper>
-              <button onClick={() => onAddCategory(data)}>추가</button>
+              <AddRemoveButton onClick={() => onAddCategory(data)}>추가</AddRemoveButton>
               {/* <DotsImage src="/dots.png" alt="dots" /> */}
             </Wrappper>
           </WeatherCategoryButton>
@@ -118,6 +115,18 @@ const Wrappper = styled.div`
   ${(props) => props.theme.flex.flexBox()};
   flex-direction: row;
 `;
+
+const AddRemoveButton = styled.button`
+  border-radius: 2px;
+  padding: 5px 15px;
+  border: none;
+  background-color: #cdcdcd;
+  cursor: pointer;
+  &:hover {
+    background-color: #888;
+  }
+`;
+
 
 const DotsImage = styled.img`
   width: 1rem;

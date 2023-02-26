@@ -25,10 +25,6 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
     setSaveColor(colorData);
   };
 
-  // const alertNotice = () => {
-  //   alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
-  // };
-
   const onRemoveCategory = (index: number) => {
     setSelectedCategoryList((prev) => {
       return prev.filter((val, valIdx) => valIdx !== index)
@@ -66,7 +62,7 @@ const SelectedCard = ({ data, index }: { data : CategoryItem, index: number }) =
               setIsModalOpen(true);
             }}
           ></SelectColor>
-          <button onClick={() => onRemoveCategory(index)}>삭제</button>
+          <AddRemoveButton onClick={() => onRemoveCategory(index)}>삭제</AddRemoveButton>
           {/* <DotsImage src="/dots.png" alt="dots" onClick={alertNotice} /> */}
         </Wrappper>
       </WeatherCategoryButton>
@@ -144,5 +140,16 @@ const LabelText = styled.span`
   ${RadioButton}:checked + && {
     background-color: #6d3dff;
     color: white;
+  }
+`;
+
+const AddRemoveButton = styled.button`
+  border-radius: 2px;
+  padding: 5px 15px;
+  border: none;
+  background-color: #cdcdcd;
+  cursor: pointer;
+  &:hover {
+    background-color: #888;
   }
 `;
