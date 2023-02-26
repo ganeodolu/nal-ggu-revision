@@ -4,10 +4,8 @@ import Category from "@/components/molecules/Category";
 import SetupHeader from "@/components/organisms/SetupHeader";
 import Select from "@/components/molecules/Select";
 import { categoryListState } from "@/lib/store";
-
-// import { DragDropContext, DropResult } from "react-beautiful-dnd";
-
 import styled from "styled-components";
+
 
 const Setup = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
