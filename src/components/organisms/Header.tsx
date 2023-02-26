@@ -30,6 +30,7 @@ const MainHeader = ({ location }: Props) => {
         <button
           className="location_btn"
           onClick={() => {
+            window.scrollTo(0, 0);
             setPopLocationModal(!popLocationModal);
           }}
         >
