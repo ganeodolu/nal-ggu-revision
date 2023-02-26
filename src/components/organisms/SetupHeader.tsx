@@ -3,9 +3,6 @@ import { useRouter } from "next/router";
 
 const SetupHeader = () => {
   const router = useRouter();
-  const alertNotice = () => {
-    alert("아직 서비스 준비중입니다! 더 나은 날꾸를 기다려주세요!");
-  };
 
   return (
     <Wrapper>
@@ -17,9 +14,6 @@ const SetupHeader = () => {
           onClick={() => router.push("/main")}
         />
         <h1 className="location">설정</h1>
-        <button className="save_btn" onClick={alertNotice}>
-          저장
-        </button>
       </div>
     </Wrapper>
   );
@@ -36,11 +30,16 @@ const Wrapper = styled.nav`
     box-shadow: 0px 1px 10px #00000029;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     .arrow_left {
       height: 2.5rem;
       margin-left: 1rem;
       cursor: pointer;
+    }
+    .location {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
     .save_btn {
       margin-right: 1.5rem;
