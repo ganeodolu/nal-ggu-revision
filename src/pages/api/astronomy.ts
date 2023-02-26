@@ -17,7 +17,6 @@ export const getAstronomyInformation = async (lon: string, lat: string) => {
       locdate: makeDate()
     }
   });
-  console.log(response.data.response.body.items.item);
   const { sunrise, sunset } = response.data.response.body.items.item;
 
   return [

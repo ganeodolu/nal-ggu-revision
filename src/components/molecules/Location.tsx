@@ -69,7 +69,6 @@ const Location = ({ setPopLocationModal }: IProps) => {
       Number(target.dataset.y),
       Number(target.dataset.x)
     );
-    console.log(convertedGrid);
     setSelectedAddress([
       String(target.textContent),
       String(convertedGrid.x),
@@ -80,12 +79,10 @@ const Location = ({ setPopLocationModal }: IProps) => {
   };
 
   const handleButtonConfirm: HandleClickEvent = (e) => {
-    console.log(selectedAddress);
     if (selectedAddress.length !== 1) {
       setSelectedLocation(selectedAddress);
       setPopLocationModal(false);
     }
-    console.log(selectedAddress);
   };
 
   return (

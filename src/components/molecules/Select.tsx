@@ -12,10 +12,8 @@ import {
 import { categoryListState } from "@/lib/store";
 
 const Select = ({ cards }: { cards: CategoryItem[] }) => {
-  console.log(cards);
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
-  console.log(selectedCategoryList);
   const handleChangeOrder = useCallback(
     (result: DropResult) => {
       const { destination, source } = result;

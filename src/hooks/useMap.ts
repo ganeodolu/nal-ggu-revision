@@ -40,7 +40,6 @@ const useMap = ({ address }: Props) => {
           if (status !== naver.maps.Service.Status.OK) {
             return alert("Something wrong!");
           }
-          console.log(response.v2.addresses);
           setResult(response.v2.addresses);
         }
       );
