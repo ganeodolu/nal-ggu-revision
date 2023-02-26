@@ -1,6 +1,12 @@
-import { Weather, Astronomy } from "../types";
+import { Astronomy, Weather } from "../types";
 
-export const COLOR_CHIP = ["#FF7A7A", "#B470EA", "#FFC42E", "#61C3A0", "#929292"];
+export const COLOR_CHIP = [
+  "#FF7A7A",
+  "#B470EA",
+  "#FFC42E",
+  "#61C3A0",
+  "#929292"
+];
 
 export const DEFAULT_LOCATION = [
   "경기도 성남시 분당구 판교동",
@@ -138,65 +144,74 @@ export const MOCKUP_ASTRONOMY_DATA: Astronomy[] = [
   { category: "SUNSET", value: "1747" }
 ];
 
-export const PRESET_DATA = {
-    presets: [
-      {
-        id: "1",
-        title: "비가 오는지 궁금해요",
-        icon: "☔",
-        color: "#609FFF"
-      },
-      // {
-      //   id: "2",
-      //   title: "달릴만한 날씨인지 궁금해요",
-      //   icon: "🏃",
-      //   color: "#FF7A7A"
-      // },
-      // {
-      //   id: "3",
-      //   title: "하늘 상태가 궁금해요",
-      //   icon: "🌤️",
-      //   color: "#B470EA"
-      // },
-      // {
-      //   id: "4",
-      //   title: "꿉꿉하진 않은지 궁금해요",
-      //   icon: "🌫️",
-      //   color: "#FFC42E"
-      // },
-      // {
-      //   id: "5",
-      //   title: "아무렇게나 해주세요",
-      //   icon: "🛏️",
-      //   color: "#61C3A0"
-      // }
-    ],
-    selfCustom: [{ title: "제가 꾸미고 싶어요", icon: "🌈", color: "#929292" }]
-  };
+export const GROUP_CATEGORY = {
+  preset: [
+    {
+      index: 0,
+      title: "비가 오는지 궁금해요",
+      icon: "☔",
+      color: "#609FFF"
+    },
+    {
+      index: 1,
+      title: "달릴만한 날씨인지 궁금해요",
+      icon: "🏃",
+      color: "#FF7A7A"
+    },
+    {
+      index: 2,
+      title: "하늘 상태가 궁금해요",
+      icon: "🌤️",
+      color: "#B470EA"
+    },
+    // {
+    //   index: 3,
+    //   title: "꿉꿉하진 않은지 궁금해요",
+    //   icon: "🌫️",
+    //   color: "#FFC42E"
+    // },
+    {
+      index: 3,
+      title: "아무렇게나 해주세요",
+      icon: "🛏️",
+      color: "#61C3A0"
+    }
+  ],
+  selfCustom: {
+      index: 4,
+      title: "제가 꾸미고 싶어요",
+      icon: "🌈",
+      color: "#929292"
+    }
+};
 
 export const SETTING_CATEGORY_PRESET = [
   {
+    index: 0,
     sort: "대기",
     category: "TMP",
     title: "1시간 기온",
     size: "2",
-    color: "#64B2E3"
+    color: "#56DFA4"
   },
   {
+    index: 1,
     sort: "대기",
     category: "SKY",
     title: "하늘상태",
     size: "2",
-    color: "#64B2E3"
+    color: "#56DFA4"
   },
   {
+    index: 2,
     sort: "대기",
     category: "REH",
     title: "습도",
     size: "2",
-    color: "#64B2E3"
+    color: "#56DFA4"
   },
   {
+    index: 3,
     sort: "강수",
     category: "POP",
     title: "강수확률",
@@ -204,6 +219,7 @@ export const SETTING_CATEGORY_PRESET = [
     color: "#64B2E3"
   },
   {
+    index: 4,
     sort: "강수",
     category: "PTY",
     title: "강수형태",
@@ -211,6 +227,7 @@ export const SETTING_CATEGORY_PRESET = [
     color: "#64B2E3"
   },
   {
+    index: 5,
     sort: "강수",
     category: "PCP",
     title: "1시간 강수량",
@@ -218,6 +235,7 @@ export const SETTING_CATEGORY_PRESET = [
     color: "#64B2E3"
   },
   {
+    index: 6,
     sort: "강수",
     category: "SNO",
     title: "1시간 신적설",
@@ -226,38 +244,49 @@ export const SETTING_CATEGORY_PRESET = [
   },
 
   {
+    index: 7,
     sort: "바람",
     category: "WSD",
     title: "풍속",
     size: "2",
-    color: "#64B2E3"
+    color: "#B0ABB7"
   },
   {
+    index: 8,
     sort: "바람",
     category: "VEC",
     title: "풍향",
     size: "2",
-    color: "#64B2E3"
+    color: "#B0ABB7"
   },
   // {
   //   sort: "바람",
   //   category: "WAV",
   //   title: "파고",
   //   size: "2",
-  //   color: "#64B2E3"
+  //   color: "#B0ABB7"
   // }
   {
+    index: 9,
     sort: "천문",
     category: "SUNRISE",
     title: "일출",
     size: "2",
-    color: "#64B2E3"
+    color: "#FFA57A"
   },
   {
+    index: 10,
     sort: "천문",
     category: "SUNSET",
     title: "일몰",
     size: "2",
-    color: "#64B2E3"
+    color: "#FFA57A"
   }
+];
+
+export const GROUP_CATEGORY_ARRAY_PRESET = [
+  [3, 5, 4, 1, 7],
+  [0, 7, 1, 3, 2],
+  [1, 0, 3, 9, 10],
+  [9, 10, 0, 3, 7],
 ];

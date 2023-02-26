@@ -12,7 +12,7 @@ const color = [
   "#FFA3F0",
   "#F97373",
   "#B0ABB7"
-];
+] as const;
 interface IColorModal {
   index: number;
   setSave: (x: string) => void;

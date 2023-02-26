@@ -1,291 +1,34 @@
 import StartSelectBox from "@/components/atoms/startSelectBox";
-import { COLOR_CHIP, PRESET_DATA } from "@/lib/constants";
+import {
+  GROUP_CATEGORY,
+  GROUP_CATEGORY_ARRAY_PRESET,
+  SETTING_CATEGORY_PRESET
+} from "@/lib/constants";
+import { categoryListState } from "@/lib/store";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { categoryListState } from "@/lib/store";
 
 const Start = () => {
+  const router = useRouter();
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
 
-  const initialData = [
-    [
-      {
-        sort: "강수",
-        category: "POP",
-        title: "강수확률",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "강수",
-        category: "PCP",
-        title: "1시간 강수량",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "강수",
-        category: "PTY",
-        title: "강수형태",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "대기",
-        category: "SKY",
-        title: "하늘상태",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "대기",
-        category: "TMP",
-        title: "1시간 기온",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "바람",
-        category: "VEC",
-        title: "풍향",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-      },
-      {
-        sort: "바람",
-        category: "WSD",
-        title: "풍속",
-        size: "2",
-        color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
+  const setStoreInitialData = (index: number) => {
+    const makeCategoryList = GROUP_CATEGORY_ARRAY_PRESET[index].map(
+      (categoryItemNumber) => {
+        return SETTING_CATEGORY_PRESET[categoryItemNumber];
       }
-    ]
-    // [
-    //   {
-    //     sort: "강수",
-    //     category: "POP",
-    //     title: "강수확률",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "TMP",
-    //     title: "1시간 기온",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "WSD",
-    //     title: "풍속",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "SKY",
-    //     title: "하늘상태",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "REH",
-    //     title: "습도",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "VEC",
-    //     title: "풍향",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "SNO",
-    //     title: "1시간 신적설",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   }
-    // ],
-    // [
-    //   {
-    //     sort: "대기",
-    //     category: "SKY",
-    //     title: "하늘상태",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "TMP",
-    //     title: "1시간 기온",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "PCP",
-    //     title: "1시간 강수량",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "VEC",
-    //     title: "풍향",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "WSD",
-    //     title: "풍속",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "REH",
-    //     title: "습도",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "POP",
-    //     title: "강수확률",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   }
-    // ],
-    // [
-    //   {
-    //     sort: "대기",
-    //     category: "REH",
-    //     title: "습도",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "POP",
-    //     title: "강수확률",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "TMP",
-    //     title: "1시간 기온",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "VEC",
-    //     title: "풍향",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "WSD",
-    //     title: "풍속",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "SKY",
-    //     title: "하늘상태",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "PCP",
-    //     title: "1시간 강수량",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   }
-    // ],
-    // [
-    //   {
-    //     sort: "대기",
-    //     category: "SUNRISE",
-    //     title: "일출",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "대기",
-    //     category: "SUNSET",
-    //     title: "일몰",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   // {
-    //   //   sort: "대기",
-    //   //   category: "SKY",
-    //   //   title: "하늘상태",
-    //   //   size: "2",
-    //   //   color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)],
-    //   // },
-    //   // {
-    //   //   sort: "대기",
-    //   //   category: "TMP",
-    //   //   title: "1시간 기온",
-    //   //   size: "2",
-    //   //   color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)],
-    //   // },
-    //   {
-    //     sort: "강수",
-    //     category: "POP",
-    //     title: "강수확률",
-    //     size: "2",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "PCP",
-    //     title: "1시간 강수량",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "강수",
-    //     category: "REH",
-    //     title: "습도",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "WSD",
-    //     title: "풍속",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   },
-    //   {
-    //     sort: "바람",
-    //     category: "VEC",
-    //     title: "풍향",
-    //     size: "1",
-    //     color: COLOR_CHIP[Math.floor(Math.random() * COLOR_CHIP.length)]
-    //   }
-    // ]
-  ];
-
-  const setStoreInitialData = (id: string) => {
-    setSelectedCategoryList(initialData[Number(id) - 1]);
+    );
+    setSelectedCategoryList(makeCategoryList);
   };
+  const { preset, selfCustom } = GROUP_CATEGORY;
+
+
+
 
   return (
     <>
@@ -306,12 +49,12 @@ const Start = () => {
           </Hello>
         </HelloWrapper>
         <BoxWrapper>
-          {PRESET_DATA.presets.map((PRESET_DATA) => (
+          {preset.map(({index, title, icon, color}) => (
             <div
-              key={PRESET_DATA.id}
+              key={index}
               style={{ width: "100%" }}
               onClick={() => {
-                setStoreInitialData(PRESET_DATA.id);
+                setStoreInitialData(index);
               }}
             >
               <Link
@@ -323,10 +66,10 @@ const Start = () => {
                 }}
               >
                 <StartSelectBox
-                  key={PRESET_DATA.id}
-                  title={PRESET_DATA.title}
-                  icon={PRESET_DATA.icon}
-                  color={PRESET_DATA.color}
+                  key={index}
+                  title={title}
+                  icon={icon}
+                  color={color}
                 />
               </Link>
             </div>
@@ -337,9 +80,9 @@ const Start = () => {
             style={{ width: "100%", textDecoration: "none", color: "black" }}
           >
             <StartSelectBox
-              title={PRESET_DATA.selfCustom[0].title}
-              icon={PRESET_DATA.selfCustom[0].icon}
-              color={PRESET_DATA.selfCustom[0].color}
+              title={selfCustom.title}
+              icon={selfCustom.icon}
+              color={selfCustom.color}
             />
           </Link>
         </BoxWrapper>
