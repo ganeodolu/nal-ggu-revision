@@ -3,9 +3,8 @@ import WeatherBox from "@/components/organisms/WeatherBox";
 import { categoryListState, locationState } from "@/lib/store";
 import { timeTransformWithBufferHour } from "@/lib/utils";
 import { getAstronomyInformation, getWeatherInformation } from "@/pages/api";
-import { useQueryErrorResetBoundary, useQueries } from "@tanstack/react-query";
-import { ErrorBoundary } from "react-error-boundary";
-import React, { Suspense, useCallback, useState, useEffect } from "react";
+import { useQueries } from "@tanstack/react-query";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   DragDropContext,
   Draggable,
@@ -21,10 +20,7 @@ import Loading from "@/components/atoms/Loading";
 const Main = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
-  console.log(selectedCategoryList);
   const [selectedLocation, setSelectedLocation] = useRecoilState(locationState);
-  console.log(selectedLocation);
-  const { reset } = useQueryErrorResetBoundary();
   const [name, x, y, lon, lat] = selectedLocation;
   const location = { name, x, y, lon, lat };
 
@@ -35,13 +31,15 @@ const Main = () => {
       data: weatherData,
       isError: isWeatherDataError,
       isLoading: isWeatherDataLoading,
-      isFetched: isWeatherDataFetched
+      isFetched: isWeatherDataFetched,
+      error: weatherDataError
     },
     {
       data: astronomyData,
       isError: isAstronomyDataError,
       isLoading: isAstronomyDataLoading,
-      isFetched: isAstronomyDataFetched
+      isFetched: isAstronomyDataFetched,
+      error: astronomyDataError
     }
   ] = useQueries({
     queries: [
@@ -56,9 +54,6 @@ const Main = () => {
     ]
   });
 
-  console.log(weatherData);
-  console.log(astronomyData);
-
   useEffect(() => {
     let transformingForecastData: any = {};
     if (weatherData && astronomyData) {
@@ -67,35 +62,7 @@ const Main = () => {
       });
       setForecastData(transformingForecastData);
     }
-    console.log(transformingForecastData);
   }, [weatherData, astronomyData]);
-
-  // useEffect(() => {
-  //   let weatherArray: any = {};
-
-  //   Promise.all([
-  //     getWeatherInformation(x, y),
-  //     getAstronomyInformation(lon, lat)
-  //   ])
-  //     .then((response) =>
-  //       response.forEach((data: Weather[] | Astronomy[]) => {
-  //         console.log(data);
-  //         data.forEach((val: any) => {
-  //           weatherArray[val.category] = val;
-  //         });
-  //         setForecastData(weatherArray);
-  //         console.log(weatherArray);
-  //       })
-  //     )
-  //     .catch((error) => {
-  //       console.log(error);
-  //       [...MOCKUP_WEATHER_DATA, ...MOCKUP_ASTRONOMY_DATA].forEach((val) => {
-  //         weatherArray[val.category] = val;
-  //       });
-  //       setForecastData(weatherArray);
-  //       console.log(weatherArray);
-  //     });
-  // }, [name]);
 
   const handleChangeOrder = useCallback(
     (result: DropResult) => {
@@ -115,26 +82,15 @@ const Main = () => {
   );
 
 
-  // if (isWeatherDataLoading || isAstronomyDataLoading) {
-  //     return <span>로딩중</span>;
-  // }
-  
-  // if (isWeatherDataError || isAstronomyDataError) {
-  //   return <span>데이터가 없습니다 다른 장소를 선택해주세요</span>;
-  // }
-
-    // TODO 로딩스피너 사용
-
   return (
     <Wrapper className="wr">
       <MainHeader location={location.name} />
-      {(isWeatherDataLoading || isAstronomyDataLoading) && (
-        <LoadingWrapper>
-          <Loading />
-        </LoadingWrapper>
-      )}
-      <WeatherWrapper>
-        {(weatherData && astronomyData) ? (
+      <CategoryWrapper>
+        {(isWeatherDataLoading || isAstronomyDataLoading) && <Loading />}
+        {(isWeatherDataError || isAstronomyDataError) && (
+          <h1 className="fetchError">데이터가 없습니다</h1>
+        )}
+        {weatherData && astronomyData && (
           <DragDropContext onDragEnd={handleChangeOrder}>
             <Droppable droppableId="infoList">
               {(provided) => (
@@ -172,8 +128,8 @@ const Main = () => {
               )}
             </Droppable>
           </DragDropContext>
-        ): <>데이터가 없습니다</>}
-      </WeatherWrapper>
+        )}
+      </CategoryWrapper>
     </Wrapper>
   );
 };
@@ -181,21 +137,20 @@ const Main = () => {
 const Wrapper = styled.section`
   min-height: 100vh;
 `;
-const LoadingWrapper = styled.article`
+
+const CategoryWrapper = styled.article`
   padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-`;
-
-const WeatherWrapper = styled.article`
-  padding-top: 60px;
-  display: flex;
-  flex-wrap: wrap;
   /* justify-content: space-around; */
   .infoList {
     width: 100%;
+  }
+  .fetchError {
+    margin-top: 45vh;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 `;
 
