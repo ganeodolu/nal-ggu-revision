@@ -27,7 +27,9 @@ const Start = () => {
   };
   const { preset, selfCustom } = GROUP_CATEGORY;
 
-
+  if (selectedCategoryList.length > 0) {
+    router.push("/main");
+  }
 
 
   return (
