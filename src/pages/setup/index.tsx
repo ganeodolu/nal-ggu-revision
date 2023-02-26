@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import Category from "@/components/molecules/Category";
 import SetupHeader from "@/components/organisms/SetupHeader";
@@ -13,20 +13,26 @@ const Setup = () => {
 
   
   return (
-    <div>
+    <Wrapper>
       <SetupHeader />
       <Container>
         <Select cards={selectedCategoryList} />
         <Category />
       </Container>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  min-height: 100vh;
+  max-width: 47rem;
+  min-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 const Container = styled.div`
   min-height: 100vh;
   margin: 0 2rem;
-  max-width: 43rem;
-  min-width: 22rem;
 `;
 export default Setup;

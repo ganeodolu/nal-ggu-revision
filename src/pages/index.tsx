@@ -92,6 +92,8 @@ const Wrapper = styled.div`
   padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 7rem;
   padding-right: 7rem;
   user-select: none;

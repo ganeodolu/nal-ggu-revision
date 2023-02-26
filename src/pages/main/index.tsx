@@ -138,6 +138,8 @@ const Wrapper = styled.section`
   min-height: 100vh;
   max-width: 47rem;
   min-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const CategoryWrapper = styled.article`
