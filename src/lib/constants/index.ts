@@ -164,12 +164,6 @@ export const GROUP_CATEGORY = {
       icon: "🌤️",
       color: "#B470EA"
     },
-    // {
-    //   index: 3,
-    //   title: "꿉꿉하진 않은지 궁금해요",
-    //   icon: "🌫️",
-    //   color: "#FFC42E"
-    // },
     {
       index: 3,
       title: "아무렇게나 해주세요",
@@ -259,13 +253,6 @@ export const SETTING_CATEGORY_PRESET = [
     size: "2",
     color: "#B0ABB7"
   },
-  // {
-  //   sort: "바람",
-  //   category: "WAV",
-  //   title: "파고",
-  //   size: "2",
-  //   color: "#B0ABB7"
-  // }
   {
     index: 9,
     sort: "천문",
