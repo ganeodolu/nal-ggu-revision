@@ -62,13 +62,12 @@ export const timeTransformWithBufferHour = (beforeHour: number) => {
   let current = new Date(Date.now() - 1000 * 60 * 60 * beforeHour);
   let time: number = current.getHours() * 100;
   let resultTime;
-  time;
   if (time < 200) {
     current = new Date(current.setDate(current.getDate() - 1));
     resultTime = String(2300);
   } else {
     const closestIndex = FORECAST_TIME_NUMBER_ARRAY.findIndex((val) => {
-      return time <= val;
+      return time - 300 <= val;
     });
     resultTime = FORECAST_TIME_STRING_ARRAY[closestIndex];
   }
