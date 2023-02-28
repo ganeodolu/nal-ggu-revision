@@ -45,11 +45,13 @@ const Main = () => {
     queries: [
       {
         queryKey: ["getWeather", x, y, timeTransformWithBufferHour(0.5)],
-        queryFn: () => getWeatherInformation(x, y)
+        queryFn: () => getWeatherInformation(x, y),
+        retry: 1
       },
       {
         queryKey: ["getAstronomy", lon, lat, makeDate()],
-        queryFn: () => getAstronomyInformation(lon, lat)
+        queryFn: () => getAstronomyInformation(lon, lat),
+        retry: 1
       }
     ]
   });
