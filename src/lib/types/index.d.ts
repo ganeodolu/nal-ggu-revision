@@ -1,3 +1,7 @@
+export interface IndexSignatureForecastData {
+  [i: string]: FullData;
+}
+
 export interface Weather {
   baseDate: string;
   baseTime: string;

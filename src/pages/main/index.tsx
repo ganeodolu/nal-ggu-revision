@@ -14,7 +14,7 @@ import {
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { makeDate } from "../api/astronomy";
-import type { FullData } from "@/lib/types";
+import type { FullData, IndexSignatureForecastData } from "@/lib/types";
 import Loading from "@/components/atoms/Loading";
 
 const Main = () => {
@@ -55,7 +55,7 @@ const Main = () => {
   });
 
   useEffect(() => {
-    let transformingForecastData: any = {};
+    let transformingForecastData: IndexSignatureForecastData = {};
     if (weatherData && astronomyData) {
       [...weatherData, ...astronomyData].forEach((item: FullData) => {
         transformingForecastData[item.category] = item;
