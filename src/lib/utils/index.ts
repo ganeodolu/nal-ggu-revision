@@ -1,23 +1,23 @@
-interface Convert {
-  (v1: number, v2: number): { x: number; y: number; lat: number; lon: number };
+interface IndexSignatureConvertGrid {
+  [i: string]: number;
 }
 
-export const xyConvert: Convert = (v1, v2) => {
-  let RE = 6371.00877; // 지구 반경(km)
-  let GRID = 5.0; // 격자 간격(km)
-  let SLAT1 = 30.0; // 투영 위도1(degree)
-  let SLAT2 = 60.0; // 투영 위도2(degree)
-  let OLON = 126.0; // 기준점 경도(degree)
-  let OLAT = 38.0; // 기준점 위도(degree)
-  let XO = 43; // 기준점 X좌표(GRID)
-  let YO = 136; // 기1준점 Y좌표(GRID)
-  let DEGRAD = Math.PI / 180.0;
+export const xyConvert = (v1: number, v2: number) => {
+  const RE = 6371.00877; // 지구 반경(km)
+  const GRID = 5.0; // 격자 간격(km)
+  const SLAT1 = 30.0; // 투영 위도1(degree)
+  const SLAT2 = 60.0; // 투영 위도2(degree)
+  const OLON = 126.0; // 기준점 경도(degree)
+  const OLAT = 38.0; // 기준점 위도(degree)
+  const XO = 43; // 기준점 X좌표(GRID)
+  const YO = 136; // 기1준점 Y좌표(GRID)
+  const DEGRAD = Math.PI / 180.0;
 
-  let re = RE / GRID;
-  let slat1 = SLAT1 * DEGRAD;
-  let slat2 = SLAT2 * DEGRAD;
-  let olon = OLON * DEGRAD;
-  let olat = OLAT * DEGRAD;
+  const re = RE / GRID;
+  const slat1 = SLAT1 * DEGRAD;
+  const slat2 = SLAT2 * DEGRAD;
+  const olon = OLON * DEGRAD;
+  const olat = OLAT * DEGRAD;
 
   let sn =
     Math.tan(Math.PI * 0.25 + slat2 * 0.5) /
@@ -27,7 +27,7 @@ export const xyConvert: Convert = (v1, v2) => {
   sf = (Math.pow(sf, sn) * Math.cos(slat1)) / sn;
   let ro = Math.tan(Math.PI * 0.25 + olat * 0.5);
   ro = (re * sf) / Math.pow(ro, sn);
-  let rs: any = {};
+  let rs: IndexSignatureConvertGrid = {};
 
   rs["lat"] = v1;
   rs["lon"] = v2;
