@@ -31,9 +31,10 @@ const ResultComponent = ({ address, handleListClick }: Props) => {
 
   return (
     <section className="result_container" onClick={handleListClick}>
-      {resultArray.map((result: any, idx: any) => {
+      {resultArray.map((result) => {
+        
         return (
-          <div key={idx} data-x={result.x} data-y={result.y}>
+          <div key={result.roadAddress} data-x={result.x} data-y={result.y}>
             {result.roadAddress}
           </div>
         );

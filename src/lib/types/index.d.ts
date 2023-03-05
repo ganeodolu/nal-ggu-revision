@@ -27,3 +27,28 @@ export interface CategoryItem {
   size: string;
   color: string;
 }
+
+export interface Address {
+  code: string;
+  longName: string;
+  shortName: string;
+  types:
+      | "SIDO"
+      | "SIGUGUN"
+      | "RI"
+      | "ROAD_NAME"
+      | "BUILDING_NUMBER"
+      | "BUILDING_NAME"
+      | "LAND_NUMBER"
+      | "POSTAL_CODE";
+}
+
+export interface AddressItem {
+  addressElements: Address[];
+  distance: string;
+  englishAddress: string;
+  jibunAddress: string;
+  roadAddress: string;
+  x: string;
+  y: string;
+}

@@ -1,34 +1,8 @@
+import { AddressItem } from "@/lib/types";
 import { useEffect, useState } from "react";
 
-interface Props {
-  address: string;
-}
-
-interface AddressItemV2 {
-  roadAddress: string;
-  jibunAddress: string;
-  englishAddress: string;
-  addressElements: Array<{
-    code: string;
-    longName: string;
-    shortName: string;
-    types:
-      | "SIDO"
-      | "SIGUGUN"
-      | "RI"
-      | "ROAD_NAME"
-      | "BUILDING_NUMBER"
-      | "BUILDING_NAME"
-      | "LAND_NUMBER"
-      | "POSTAL_CODE";
-  }>;
-  x: string;
-  y: string;
-  distance: string;
-}
-
-const useMap = ({ address }: Props) => {
-  const [result, setResult] = useState<AddressItemV2[]>();
+const useMap = ({ address }: { address: string }) => {
+  const [result, setResult] = useState<AddressItem[]>();
 
   useEffect(() => {
     const initMap = () => {
@@ -36,11 +10,14 @@ const useMap = ({ address }: Props) => {
         {
           query: address
         },
-        (status: any, response: any) => {
+        (status, { v2: { addresses } }) => {
+          console.log("address", addresses);
           if (status !== naver.maps.Service.Status.OK) {
             return alert("Something wrong!");
           }
-          setResult(response.v2.addresses);
+          if (addresses) {
+            setResult(addresses);
+          }
         }
       );
     };
