@@ -141,12 +141,12 @@ const WeatherBox = ({ selectedCategoryItem, forecastData }: Props) => {
   );
 };
 
-interface IweatherBox {
+interface WeatherBox {
   size: string;
   color: string;
 }
 
-const Wrapper = styled.div<IweatherBox>`
+const Wrapper = styled.div<WeatherBox>`
   box-shadow: 2px 2px 2px 2px rgb(223, 222, 223);
   display: flex;
   padding: 1rem;

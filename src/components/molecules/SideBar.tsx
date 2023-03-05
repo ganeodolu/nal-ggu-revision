@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 
 interface SideBarType {
   isOpenSideBar: boolean;
-  hideSideBar?: any;
-  //any 수정
+  hideSideBar?: () => void;
 }
 
 const SideBar = ({ isOpenSideBar, hideSideBar }: SideBarType) => {
