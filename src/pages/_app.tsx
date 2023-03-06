@@ -9,6 +9,7 @@ import Script from "next/script";
 import { ReactElement, ReactNode } from "react";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
+import { Analytics } from '@vercel/analytics/react';
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   P,
@@ -68,6 +69,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         </RecoilRoot>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
+      <Analytics />
     </>
   );
 }
