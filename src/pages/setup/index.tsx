@@ -1,22 +1,17 @@
 import React from "react";
-import { useRecoilState } from "recoil";
 import Category from "@/components/molecules/Category";
 import SetupHeader from "@/components/organisms/SetupHeader";
 import Select from "@/components/molecules/Select";
-import { categoryListState } from "@/lib/store";
 import styled from "styled-components";
 
 
 const Setup = () => {
-  const [selectedCategoryList, setSelectedCategoryList] =
-    useRecoilState(categoryListState);
 
-  
   return (
     <Wrapper>
       <SetupHeader />
       <Container>
-        <Select cards={selectedCategoryList} />
+        <Select />
         <Category />
       </Container>
     </Wrapper>

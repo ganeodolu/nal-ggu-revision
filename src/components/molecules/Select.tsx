@@ -11,7 +11,7 @@ import {
 } from "react-beautiful-dnd";
 import { categoryListState } from "@/lib/store";
 
-const Select = ({ cards }: { cards: CategoryItem[] }) => {
+const Select = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
   const handleChangeOrder = useCallback(
