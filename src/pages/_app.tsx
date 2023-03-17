@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         />
         <meta
           property="og:image"
-          content="https://github.com/bbnerino/nal-ggu/blob/master/public/assets/meta/kakaotalk_800400.png?raw=true"
+          content="https://github.com/ganeodolu/nal-ggu-revision/blob/main/public/meta/kakaotalk_800400.png?raw=true"
         />
         <link
           rel="icon"
