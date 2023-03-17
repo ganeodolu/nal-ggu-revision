@@ -1,47 +1,12 @@
+import LocationModalFrame from "@/components/molecules/LocationModalFrame";
+import { locationState } from "@/lib/store";
+import { xyConvert } from "@/lib/utils";
 import React, { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import LocationModalFrame from "@/components/molecules/LocationModalFrame";
-import useMap from "@/hooks/useMap";
-import { xyConvert } from "@/lib/utils";
-import { locationState } from "@/lib/store";
+import { HandleClickEvent, HandleSubmitEvent } from "@/lib/types";
+import AddressResults from "@/components/atoms/AddressResults";
 
-interface HandleSubmitEvent {
-  (e: React.SyntheticEvent<HTMLFormElement>): void;
-}
-
-interface HandleClickEvent {
-  (e: React.MouseEvent<HTMLElement>): void;
-}
-
-interface Props {
-  address: string;
-  handleListClick: HandleClickEvent;
-}
-
-const ResultComponent = ({ address, handleListClick }: Props) => {
-  const resultArray = useMap({ address });
-
-  if (!resultArray) {
-    return <div>다시 검색해주세요</div>;
-  }
-  if (address.length === 0) {
-    return <div>결과가 없습니다.</div>;
-  }
-
-  return (
-    <section className="result_container" onClick={handleListClick}>
-      {resultArray.map((result) => {
-        
-        return (
-          <div key={result.roadAddress} data-x={result.x} data-y={result.y}>
-            {result.roadAddress}
-          </div>
-        );
-      })}
-    </section>
-  );
-};
 
 interface IProps {
   setPopLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -110,7 +75,7 @@ const Location = ({ setPopLocationModal }: IProps) => {
           </section>
           <section className="result_wrapper">
             {inputAddress.length !== 0 && (
-              <ResultComponent
+              <AddressResults
                 address={inputAddress}
                 handleListClick={handleListClick}
               />

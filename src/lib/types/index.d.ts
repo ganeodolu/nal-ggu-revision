@@ -52,3 +52,11 @@ export interface AddressItem {
   x: string;
   y: string;
 }
+
+export interface HandleClickEvent {
+  (e: React.MouseEvent<HTMLElement>): void;
+}
+
+export interface HandleSubmitEvent {
+  (e: React.SyntheticEvent<HTMLFormElement>): void;
+}
