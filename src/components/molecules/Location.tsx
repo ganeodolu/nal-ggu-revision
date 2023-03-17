@@ -65,13 +65,15 @@ const Location = ({ setPopLocationModal }: IProps) => {
         <form onSubmit={handleInputSubmit}>
           <section>
             <h1 className="address_name">주소 검색</h1>
-            <input
-              className="input"
-              ref={inputValueRef}
-              name="findAddress"
-              placeholder="예)효자동, 여의공원로 68"
-            ></input>
-            <button className="search_btn">검색</button>
+            <div className="input_container">
+              <input
+                className="input"
+                ref={inputValueRef}
+                name="findAddress"
+                placeholder="예)효자동, 여의공원로 68"
+              ></input>
+              <button className="search_btn">검색</button>
+            </div>
           </section>
           <section className="result_wrapper">
             {inputAddress.length !== 0 && (
@@ -115,9 +117,13 @@ const Wrapper = styled.div`
   .address_name {
     margin-bottom: 0.5rem;
   }
+  .input_container {
+    display: flex;
+    justify-content: space-between;
+  }
   .input {
     height: 2rem;
-    width: 10rem;
+    width: 12rem;
     margin-right: 0.5rem;
   }
   .search_btn {
@@ -145,6 +151,9 @@ const Wrapper = styled.div`
   }
   .result_wrapper {
     height: 10rem;
+  }
+  .result_empty {
+    margin: 2rem;
   }
   .result_container {
     border: 2px solid #bebdbd;
