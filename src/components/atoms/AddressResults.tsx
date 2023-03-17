@@ -9,12 +9,8 @@ interface Props {
 
 const AddressResults = ({ address, handleListClick }: Props) => {
   const resultArray = useMap({ address });
-
-  if (!resultArray) {
-    return <div>다시 검색해주세요</div>;
-  }
-  if (address.length === 0) {
-    return <div>결과가 없습니다.</div>;
+  if (!resultArray || resultArray.length === 0) {
+    return <div className="result_empty">검색 결과가 없습니다</div>;
   }
 
   return (
