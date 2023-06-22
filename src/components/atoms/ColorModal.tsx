@@ -1,6 +1,6 @@
 import { categoryListState } from "@/lib/store";
-import React, { useState } from "react";
-import { useRecoilState } from "recoil";
+import React, { useState, useCallback } from "react";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const color = [
@@ -26,8 +26,7 @@ const ColorModal = ({
   saveColor,
   onHandleModal
 }: IColorModal) => {
-  const [selectedCategoryList, setSelectedCategoryList] =
-    useRecoilState(categoryListState);
+  const setSelectedCategoryList = useSetRecoilState(categoryListState);
   const [selectedColor, setSelectedColor] = useState("");
   // 바뀌는 color를 saveColor로 세팅
   const [isSaveColor, setSaveColor] = useState(saveColor);
@@ -39,7 +38,7 @@ const ColorModal = ({
   };
 
   // 모달 닫으면 선택된 color값 전달
-  const fn = () => {
+  const fn = useCallback(() => {
     setSave(isSaveColor);
     onHandleModal();
     setSelectedCategoryList((prev) => {
@@ -50,7 +49,8 @@ const ColorModal = ({
       };
       return newSelectedCategoryList;
     });
-  };
+  }, [selectedColor, selectedColor]);
+  
   return (
     <Container>
       <Title>색상 선택 모달</Title>
