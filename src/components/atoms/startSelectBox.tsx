@@ -7,7 +7,7 @@ interface Props {
   color: string;
 }
 
-const StartSelectBox: React.FC<Props> = ({ title, icon, color }) => {
+const StartSelectBox = ({ title, icon, color } : Props ) => {
   return (
     <Wrapper color={color}>
       <Icon>{icon}</Icon>
