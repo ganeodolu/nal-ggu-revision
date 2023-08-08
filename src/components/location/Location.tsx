@@ -1,11 +1,11 @@
-import LocationModalFrame from "@/components/molecules/LocationModalFrame";
+import LocationModalFrame from "@/components/location/LocationModalFrame";
 import { locationState } from "@/lib/store";
 import { xyConvert } from "@/lib/utils";
 import React, { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { HandleClickEvent, HandleSubmitEvent } from "@/lib/types";
-import AddressResults from "@/components/atoms/AddressResults";
+import AddressResults from "@/components/location/AddressResults";
 
 
 interface IProps {

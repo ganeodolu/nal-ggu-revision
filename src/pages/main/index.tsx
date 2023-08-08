@@ -1,10 +1,8 @@
-import MainHeader from "@/components/organisms/Header";
-import WeatherBox from "@/components/organisms/WeatherBox";
+import React, { useCallback, useState, useEffect } from "react";
 import { categoryListState, locationState } from "@/lib/store";
 import { timeTransformWithBufferHour } from "@/lib/utils";
 import { getAstronomyInformation, getWeatherInformation } from "@/pages/api";
 import { useQueries } from "@tanstack/react-query";
-import React, { useCallback, useState, useEffect } from "react";
 import {
   DragDropContext,
   Draggable,
@@ -15,7 +13,9 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { makeDate } from "../api/astronomy";
 import type { FullData, IndexSignatureForecastData } from "@/lib/types";
-import Loading from "@/components/atoms/Loading";
+import Loading from "@/components/common/Loading";
+import MainHeader from "@/components/main/Header";
+import WeatherBox from "@/components/main/WeatherBox";
 
 const Main = () => {
   const [selectedCategoryList, setSelectedCategoryList] =

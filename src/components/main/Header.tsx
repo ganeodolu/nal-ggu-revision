@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import SideBar from "@/components/molecules/SideBar";
-import Location from "@/components/molecules/Location";
+import SideBar from "@/components/main/SideBar";
+import Location from "@/components/location/Location";
 
 interface Props {
   location: string;

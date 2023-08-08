@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { categoryListState } from "@/lib/store";
-import ColorModal from "@/components/atoms/ColorModal";
-import ModalFrame from "@/components/atoms/ModalFrame";
+import ColorModal from "@/components/setup/ColorModal";
+import ModalFrame from "@/components/setup/ModalFrame";
 import { CategoryItem } from "@/lib/types";
 
 

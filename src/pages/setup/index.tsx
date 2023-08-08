@@ -1,7 +1,7 @@
 import React from "react";
-import Category from "@/components/molecules/Category";
-import SetupHeader from "@/components/organisms/SetupHeader";
-import Select from "@/components/molecules/Select";
+import Category from "@/components/setup/Category";
+import SetupHeader from "@/components/setup/SetupHeader";
+import Select from "@/components/setup/Select";
 import styled from "styled-components";
 
 

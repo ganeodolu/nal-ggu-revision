@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import SelectedCard from "@/components/atoms/SelectedCard";
+import SelectedCard from "@/components/setup/SelectedCard";
 import { CategoryItem } from "@/lib/types";
 import React, { useCallback } from "react";
 import styled from "styled-components";
