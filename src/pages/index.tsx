@@ -1,4 +1,4 @@
-import StartSelectBox from "@/components/atoms/startSelectBox";
+import StartSelectBox from "@/components/preset/startSelectBox";
 import {
   GROUP_CATEGORY,
   GROUP_CATEGORY_ARRAY_PRESET,
