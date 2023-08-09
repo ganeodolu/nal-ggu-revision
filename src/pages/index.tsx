@@ -23,8 +23,7 @@ const Start = () => {
     );
     setSelectedCategoryList(makeCategoryList);
   };
-  const { preset, selfCustom } = GROUP_CATEGORY;
-
+  const { preset, keepList, selfCustom } = GROUP_CATEGORY;
 
   return (
     <>
@@ -45,7 +44,7 @@ const Start = () => {
           </Hello>
         </HelloWrapper>
         <BoxWrapper>
-          {preset.map(({index, title, icon, color}) => (
+          {preset.map(({ index, title, icon, color }) => (
             <div
               key={index}
               style={{ width: "100%" }}
@@ -70,6 +69,21 @@ const Start = () => {
               </Link>
             </div>
           ))}
+          <Link
+            href={"/main"}
+            style={{
+              width: "100%",
+              textDecoration: "none",
+              color: "black"
+            }}
+          >
+            <StartSelectBox
+              key={keepList.index}
+              title={keepList.title}
+              icon={keepList.icon}
+              color={keepList.color}
+            />
+          </Link>
           <Divider></Divider>
           <Link
             href={"/setup"}

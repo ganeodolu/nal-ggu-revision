@@ -5,6 +5,7 @@ export const COLOR_CHIP = [
   "#B470EA",
   "#FFC42E",
   "#61C3A0",
+  "#64B2E3",
   "#929292"
 ];
 
@@ -169,14 +170,20 @@ export const GROUP_CATEGORY = {
       title: "아무렇게나 해주세요",
       icon: "🛏️",
       color: "#61C3A0"
-    }
+    },
   ],
-  selfCustom: {
+  keepList: {
       index: 4,
-      title: "제가 꾸미고 싶어요",
-      icon: "🌈",
-      color: "#929292"
-    }
+      title: "지금이 좋아요",
+      icon: "👌",
+      color: "#64B2E3"
+    },
+  selfCustom: {
+    index: 5,
+    title: "제가 꾸미고 싶어요",
+    icon: "🌈",
+    color: "#929292"
+  }
 };
 
 export const SETTING_CATEGORY_PRESET = [
