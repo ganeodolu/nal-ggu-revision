@@ -1,6 +1,4 @@
-export interface IndexSignatureForecastData {
-  [i: string]: FullData;
-}
+
 
 export interface Weather {
   baseDate: string;
@@ -15,10 +13,14 @@ export interface Weather {
 
 export interface Astronomy {
   category: string;
-  value: string;
+  fcstValue: string;
 }
 
 export type FullData = Weather | Astronomy;
+
+export interface IndexSignatureForecastData {
+  [i: string]: FullData;
+}
 
 export interface CategoryItem {
   sort: string;

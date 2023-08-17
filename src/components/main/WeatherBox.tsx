@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import { CategoryItem } from "@/lib/types";
+import { CategoryItem, IndexSignatureForecastData } from "@/lib/types";
 
 interface Props {
   selectedCategoryItem: CategoryItem;
-  forecastData: any;
+  forecastData: IndexSignatureForecastData;
 }
 
 const WeatherBox = ({ selectedCategoryItem, forecastData }: Props) => {
@@ -102,18 +102,18 @@ const WeatherBox = ({ selectedCategoryItem, forecastData }: Props) => {
           return;
         case "SUNRISE":
           setWeatherData(
-            forecastData[CATEGORY].value.slice(0, 2) +
+            forecastData[CATEGORY].fcstValue.slice(0, 2) +
               ":" +
-              forecastData[CATEGORY].value.slice(2)
+              forecastData[CATEGORY].fcstValue.slice(2)
           );
           setWeatherImg("/icon/sunrise.png");
           setWeatherUnit("");
           return;
         case "SUNSET":
           setWeatherData(
-            forecastData[CATEGORY].value.slice(0, 2) +
+            forecastData[CATEGORY].fcstValue.slice(0, 2) +
               ":" +
-              forecastData[CATEGORY].value.slice(2)
+              forecastData[CATEGORY].fcstValue.slice(2)
           );
           setWeatherImg("/icon/sunset.png");
           setWeatherUnit("");
