@@ -38,7 +38,7 @@ const ColorModal = ({
   };
 
   // 모달 닫으면 선택된 color값 전달
-  const fn = useCallback(() => {
+  const onSaveColor = useCallback(() => {
     setSave(isSaveColor);
     onHandleModal();
     setSelectedCategoryList((prev) => {
@@ -55,18 +55,18 @@ const ColorModal = ({
     <Container>
       <Title>색상 선택 모달</Title>
       <ColorSection>
-        {color.map((color, idx) => {
+        {color.map((color) => {
           return color === selectedColor ? (
             <SelectedColorButton
               onClick={() => {
                 onHandleColor(color);
               }}
-              key={idx}
+              key={color}
               color={color}
             />
           ) : (
             <ColorButton
-              key={idx}
+              key={color}
               color={color}
               onClick={() => {
                 onHandleColor(color);
@@ -77,7 +77,7 @@ const ColorModal = ({
       </ColorSection>
       <ButtonSection>
         <Button onClick={onHandleModal}>취소</Button>
-        <Button onClick={fn}>저장</Button>
+        <Button onClick={onSaveColor}>저장</Button>
       </ButtonSection>
     </Container>
   );
