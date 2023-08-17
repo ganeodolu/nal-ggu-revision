@@ -8,12 +8,12 @@ import { categoryListState } from "@/lib/store";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const Start = () => {
-  const [selectedCategoryList, setSelectedCategoryList] =
-    useRecoilState(categoryListState);
+  const setSelectedCategoryList =
+    useSetRecoilState(categoryListState);
 
   const setStoreInitialData = (index: number) => {
     const makeCategoryList = GROUP_CATEGORY_ARRAY_PRESET[index].map(

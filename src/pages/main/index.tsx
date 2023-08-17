@@ -9,7 +9,7 @@ import {
   Droppable,
   DropResult
 } from "react-beautiful-dnd";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { makeDate } from "../api/astronomy";
 import type { FullData, IndexSignatureForecastData } from "@/lib/types";
@@ -20,7 +20,7 @@ import WeatherBox from "@/components/main/WeatherBox";
 const Main = () => {
   const [selectedCategoryList, setSelectedCategoryList] =
     useRecoilState(categoryListState);
-  const [selectedLocation, setSelectedLocation] = useRecoilState(locationState);
+  const selectedLocation = useRecoilValue(locationState);
   const [name, x, y, lon, lat] = selectedLocation;
   const location = { name, x, y, lon, lat };
 
@@ -31,14 +31,12 @@ const Main = () => {
       data: weatherData,
       isError: isWeatherDataError,
       isLoading: isWeatherDataLoading,
-      isFetched: isWeatherDataFetched,
       error: weatherDataError
     },
     {
       data: astronomyData,
       isError: isAstronomyDataError,
       isLoading: isAstronomyDataLoading,
-      isFetched: isAstronomyDataFetched,
       error: astronomyDataError
     }
   ] = useQueries({
