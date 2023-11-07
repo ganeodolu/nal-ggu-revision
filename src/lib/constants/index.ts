@@ -141,8 +141,8 @@ export const MOCKUP_WEATHER_DATA: Weather[] = [
 ];
 
 export const MOCKUP_ASTRONOMY_DATA: Astronomy[] = [
-  { category: "SUNRISE", value: "0646" },
-  { category: "SUNSET", value: "1747" }
+  { category: "SUNRISE", fcstValue: "0646" },
+  { category: "SUNSET", fcstValue: "1747" }
 ];
 
 export const GROUP_CATEGORY = {
